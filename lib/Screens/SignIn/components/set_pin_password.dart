@@ -1,8 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:myApp/Screens/SignIn/sign_in_success.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:flutter/services.dart';
-import 'package:myApp/Screens/SignIn/OTP_success.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 // class ConnectDeviceBody extends StatelessWidget {
 //   @override
@@ -56,26 +57,44 @@ import 'package:myApp/Screens/SignIn/OTP_success.dart';
 //   }
 // }
 
-class OTPAuthentication extends StatefulWidget {
+class SetPINPassword extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
-    return _FormOTPState();
+    return _SetPINState();
   }
 }
 
-class _FormOTPState extends State<OTPAuthentication>
-    with WidgetsBindingObserver {
+class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
   static final GlobalKey<ScaffoldState> _scaffoldKey =
       new GlobalKey<ScaffoldState>();
   // final _connectController = TextEditingController();
-  TextEditingController numberFieldCtrl;
+  TextEditingController numberFieldCtrl1;
+  TextEditingController numberFieldCtrl2;
   // FocusNode focusNode;
-  bool _otpValidate = false;
+  bool _pinValidate = false;
+  String _numberValidate1;
+  String _numberValidate2;
+
+  bool _obscureText1 = true;
+  bool _obscureText2 = true;
+
+  void _toggle1() {
+    setState(() {
+      _obscureText1 = !_obscureText1;
+    });
+  }
+
+  void _toggle2() {
+    setState(() {
+      _obscureText2 = !_obscureText2;
+    });
+  }
 
   // String _connect;
   @override
   void initState() {
-    numberFieldCtrl = TextEditingController();
+    numberFieldCtrl1 = TextEditingController();
+    numberFieldCtrl2 = TextEditingController();
     // focusNode = FocusNode()..addListener(_rebuildOnFocusChange);
     super.initState();
   }
@@ -130,7 +149,7 @@ class _FormOTPState extends State<OTPAuthentication>
                                 backgroundColor: Colors.transparent,
                                 width: 80.0,
                                 lineHeight: 10.0,
-                                percent: 0.75,
+                                percent: 1,
                                 progressColor: Color.fromRGBO(17, 57, 125, 1),
                               ),
                             ]))
@@ -139,7 +158,7 @@ class _FormOTPState extends State<OTPAuthentication>
                   ),
                   SizedBox(height: 38),
                   Text(
-                    'Xác thực OTP',
+                    'Thiết lập mã PIN',
                     style: TextStyle(
                       fontSize: 24,
                       fontWeight: FontWeight.bold,
@@ -149,7 +168,7 @@ class _FormOTPState extends State<OTPAuthentication>
                   ),
                   SizedBox(height: 16),
                   Text(
-                    'Vui lòng nhập mã OTP để tiếp tục thao tác',
+                    'Mã PIN này sẽ được sử dụng để xác thực khi bạn đăng nhập vào Mobile Sign.',
                     style: TextStyle(
                         fontSize: 16,
                         fontFamily: 'Gilroy',
@@ -158,32 +177,77 @@ class _FormOTPState extends State<OTPAuthentication>
                   ),
                   SizedBox(height: 16),
                   TextField(
-                    style: TextStyle(fontSize: 32, letterSpacing: 16),
+                    obscureText: _obscureText1,
                     keyboardType: TextInputType.numberWithOptions(),
                     inputFormatters: <TextInputFormatter>[
                       FilteringTextInputFormatter.digitsOnly
                     ],
-                    maxLength: 4,
+                    maxLength: 6,
                     autofocus: true,
                     decoration: InputDecoration(
+                      suffixIcon: InkWell(
+                          onTap: _toggle1,
+                          child: Icon(
+                            _obscureText1
+                                ? FontAwesomeIcons.eye
+                                : FontAwesomeIcons.eyeSlash,
+                            size: 15.0,
+                            color: Colors.grey,
+                          )),
                       focusedBorder: UnderlineInputBorder(
                           borderSide: BorderSide(
                               color: Color.fromRGBO(17, 57, 125, 1))),
-                      // labelText: 'Nhập mã OTP',
-                      errorText: _otpValidate
-                          ? '\* Mã OTP chưa chính xác\. Vui lòng thử lại'
+                      labelText: 'Nhập mã PIN',
+                      errorText: _pinValidate
+                          ? '\* Mã PIN chưa chính xác\. Vui lòng nhập lại'
                           : null,
                       labelStyle: TextStyle(
                           fontFamily: 'Gilroy',
                           color: Color.fromRGBO(193, 199, 208, 1)),
                     ),
-                    controller: numberFieldCtrl,
+                    controller: numberFieldCtrl1,
                     // focusNode: focusNode,
-                    // onChanged: (text) {
-                    //   setState(() {
-                    //     _connect = text;
-                    //   });
-                    // },
+                    onChanged: (text) {
+                      setState(() {
+                        _numberValidate1 = text;
+                      });
+                    },
+                  ),
+                  TextField(
+                    obscureText: _obscureText2,
+                    keyboardType: TextInputType.numberWithOptions(),
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.digitsOnly
+                    ],
+                    maxLength: 6,
+                    decoration: InputDecoration(
+                      suffixIcon: InkWell(
+                          onTap: _toggle2,
+                          child: Icon(
+                            _obscureText2
+                                ? FontAwesomeIcons.eye
+                                : FontAwesomeIcons.eyeSlash,
+                            size: 15.0,
+                            color: Colors.grey,
+                          )),
+                      focusedBorder: UnderlineInputBorder(
+                          borderSide: BorderSide(
+                              color: Color.fromRGBO(17, 57, 125, 1))),
+                      labelText: 'Nhập lại mã PIN',
+                      errorText: _pinValidate
+                          ? '\* Mã PIN chưa chính xác\. Vui lòng nhập lại'
+                          : null,
+                      labelStyle: TextStyle(
+                          fontFamily: 'Gilroy',
+                          color: Color.fromRGBO(193, 199, 208, 1)),
+                    ),
+                    controller: numberFieldCtrl2,
+                    // focusNode: focusNode,
+                    onChanged: (text) {
+                      setState(() {
+                        _numberValidate2 = text;
+                      });
+                    },
                   ),
                   SizedBox(
                     height: 56,
@@ -194,14 +258,17 @@ class _FormOTPState extends State<OTPAuthentication>
                     child: new FlatButton(
                       onPressed: () {
                         setState(() {
-                          numberFieldCtrl.text.isEmpty ||
-                                  numberFieldCtrl.text.length < 4
-                              ? _otpValidate = true
-                              // : _otpValidate = false;
+                          numberFieldCtrl2.text.isEmpty &
+                                      numberFieldCtrl1.text.isEmpty ||
+                                  numberFieldCtrl2.text.length &
+                                          numberFieldCtrl1.text.length <
+                                      6 ||
+                                  _numberValidate1 != _numberValidate2
+                              ? _pinValidate = true
                               : Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => OTPSuccess()));
+                                      builder: (context) => SignInSuccess()));
                         });
                       },
                       child: Text(
