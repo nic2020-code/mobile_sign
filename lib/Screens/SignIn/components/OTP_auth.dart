@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:flutter/services.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:myApp/Screens/SignIn/OTP_success.dart';
 
 // class ConnectDeviceBody extends StatelessWidget {
@@ -217,7 +219,24 @@ class _FormOTPState extends State<OTPAuthentication>
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(6)),
                     ),
-                  )
+                  ),
+                  SizedBox(
+                    height: 48,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      InkWell(
+                          child: new Text(
+                            'Gửi lại mã OTP',
+                            style: new TextStyle(
+                                color: Color.fromRGBO(52, 69, 99, 1),
+                                fontFamily: 'Gilroy',
+                                fontWeight: FontWeight.w600),
+                          ),
+                          onTap: () => {})
+                    ],
+                  ),
                 ],
               ))),
       debugShowCheckedModeBanner: false,

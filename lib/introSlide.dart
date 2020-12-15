@@ -146,7 +146,7 @@ class IntroScreenState extends State<IntroScreen> {
               GestureDetector(
                   child: Image.asset(
                 currentSlide.pathImage,
-                fit: BoxFit.cover,
+                fit: BoxFit.fitHeight,
               )),
               Container(
                 child: Text(
