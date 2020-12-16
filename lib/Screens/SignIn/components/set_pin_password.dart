@@ -201,7 +201,7 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
                       },
                     ),
                     SizedBox(
-                      height: 56,
+                      height: 48,
                     ),
                     SizedBox(
                       width: double.infinity,
