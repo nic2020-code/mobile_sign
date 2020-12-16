@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'digital_certificate_validate.dart';
 
@@ -157,9 +156,6 @@ class _FormConnectState extends State<ConnectDeviceBody>
                   ),
                   SizedBox(height: 16),
                   TextField(
-                    inputFormatters: [
-                      FilteringTextInputFormatter.allow(RegExp("[a-z0-9]"))
-                    ],
                     maxLength: 6,
                     autofocus: true,
                     decoration: InputDecoration(
