@@ -1,62 +1,10 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/gestures.dart';
+// import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'package:flutter/services.dart';
-import 'package:url_launcher/url_launcher.dart';
+// import 'package:url_launcher/url_launcher.dart';
 import 'package:myApp/Screens/SignIn/OTP_success.dart';
-
-// class ConnectDeviceBody extends StatelessWidget {
-//   @override
-//   Widget build(BuildContext context) {
-//     return Stack(
-//       children: <Widget>[
-//         Container(
-//           color: Colors.white,
-//         ), // Required some widget in between to float AppBar
-
-//         Positioned(
-//           top: 40,
-//           left: 16,
-//           right: 16,
-//           child: AppBar(
-//             elevation: 0,
-//             backgroundColor: Colors.transparent,
-//             leading: new IconButton(
-//               icon: new Icon(Icons.arrow_back_ios_rounded),
-//               color: Color.fromRGBO(9, 30, 66, 1),
-//               highlightColor: Colors.transparent,
-//               onPressed: () {
-//                 Navigator.pop(context);
-//               },
-//             ),
-//             primary: false,
-//             actions: <Widget>[
-//               Container(
-//                   margin: const EdgeInsets.only(
-//                       left: 16, top: 22, bottom: 16, right: 24),
-//                   padding: const EdgeInsets.only(top: 3, right: 2),
-//                   decoration: BoxDecoration(
-//                     border: Border.all(
-//                         width: 1, color: Color.fromRGBO(17, 57, 125, 1)),
-//                     borderRadius: BorderRadius.all(Radius.circular(10.0)),
-//                   ),
-//                   child: Column(children: <Widget>[
-//                     new LinearPercentIndicator(
-//                       backgroundColor: Colors.transparent,
-//                       width: 80.0,
-//                       lineHeight: 10.0,
-//                       percent: 0.25,
-//                       progressColor: Color.fromRGBO(17, 57, 125, 1),
-//                     ),
-//                   ]))
-//             ],
-//           ),
-//         ),
-//       ],
-//     );
-//   }
-// }
 
 class OTPAuthentication extends StatefulWidget {
   @override
