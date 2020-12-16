@@ -96,49 +96,66 @@ class _FormConnectState extends State<ConnectDeviceBody>
       home: Scaffold(
           key: _scaffoldKey,
           body: SafeArea(
-              minimum: const EdgeInsets.only(top: 40, left: 16, right: 16),
+              minimum: const EdgeInsets.only(top: 40),
               child: SingleChildScrollView(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      child: AppBar(
-                        elevation: 0,
-                        backgroundColor: Colors.transparent,
-                        leading: new IconButton(
-                          icon: new Icon(Icons.arrow_back_ios_rounded),
-                          color: Color.fromRGBO(9, 30, 66, 1),
-                          highlightColor: Colors.transparent,
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            IconButton(
+                              icon: new Icon(Icons.arrow_back_ios_rounded),
+                              color: Color.fromRGBO(9, 30, 66, 1),
+                              highlightColor: Colors.transparent,
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            )
+                          ],
                         ),
-                        primary: false,
-                        actions: <Widget>[
-                          Container(
-                              margin:
-                                  const EdgeInsets.only(top: 22, bottom: 16),
-                              padding:
-                                  const EdgeInsets.only(top: 3.4, right: 2),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 1,
-                                    color: Color.fromRGBO(17, 57, 125, 1)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.0)),
-                              ),
-                              child: Column(children: <Widget>[
-                                new LinearPercentIndicator(
-                                  backgroundColor: Colors.transparent,
-                                  width: 80.0,
-                                  lineHeight: 10.0,
-                                  percent: 0.25,
-                                  progressColor: Color.fromRGBO(17, 57, 125, 1),
+                        Column(
+                          children: [
+                            Container(
+                                margin: const EdgeInsets.only(
+                                    top: 16, bottom: 16, right: 16),
+                                padding: const EdgeInsets.only(
+                                    top: 2, right: 2, bottom: 2),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 1,
+                                      color: Color.fromRGBO(17, 57, 125, 1)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
                                 ),
-                              ]))
-                        ],
-                      ),
+                                child: Column(children: <Widget>[
+                                  new LinearPercentIndicator(
+                                    backgroundColor: Colors.transparent,
+                                    width: 80.0,
+                                    lineHeight: 10.0,
+                                    percent: 0.25,
+                                    progressColor:
+                                        Color.fromRGBO(17, 57, 125, 1),
+                                  ),
+                                ]))
+                          ],
+                        )
+                      ],
                     ),
+
+                    // Container(
+                    //   child: AppBar(
+                    //     elevation: 0,
+                    //     backgroundColor: Colors.transparent,
+                    //     leading: new ,
+                    //     primary: false,
+                    //     actions: <Widget>[
+
+                    //     ],
+                    //   ),
+                    // ),
                     SizedBox(height: 38),
                     Text(
                       'Kết nối thiết bị',

@@ -113,6 +113,7 @@ class _FormOTPState extends State<OTPAuthentication>
                     TextField(
                       style: TextStyle(fontSize: 32, letterSpacing: 16),
                       keyboardType: TextInputType.numberWithOptions(),
+                      textInputAction: TextInputAction.done,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],

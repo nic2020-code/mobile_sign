@@ -81,7 +81,7 @@ class _CertificateState extends State<DigitalCertificate> {
                 ),
                 SizedBox(height: 8),
                 Container(
-                  height: 400,
+                  height: 500,
                   child: ListView(
                     children: [
                       SizedBox(height: 24),

@@ -18,7 +18,7 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
   // final _connectController = TextEditingController();
   TextEditingController numberFieldCtrl1;
   TextEditingController numberFieldCtrl2;
-  // FocusNode focusNode;
+  final focus = FocusNode();
   bool _pinValidate = false;
   String _numberValidate1;
   String _numberValidate2;
@@ -130,6 +130,10 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
                     TextField(
                       obscureText: _obscureText1,
                       keyboardType: TextInputType.numberWithOptions(),
+                      textInputAction: TextInputAction.next,
+                      onSubmitted: (v) {
+                        FocusScope.of(context).requestFocus(focus);
+                      },
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
@@ -165,8 +169,10 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
                       },
                     ),
                     TextField(
+                      focusNode: focus,
                       obscureText: _obscureText2,
                       keyboardType: TextInputType.numberWithOptions(),
+                      textInputAction: TextInputAction.done,
                       inputFormatters: <TextInputFormatter>[
                         FilteringTextInputFormatter.digitsOnly
                       ],
