@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:intro_slider/dot_animation_enum.dart';
 import 'package:intro_slider/slide_object.dart';
 import 'package:myApp/main.dart';
-import 'package:flutter_native_splash/flutter_native_splash.dart';
+// import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'Screens/Welcome/welcome_screen.dart';
 
