@@ -21,9 +21,8 @@ class _CertificateState extends State<DigitalCertificate> {
       home: Scaffold(
         backgroundColor: Color.fromRGBO(244, 244, 245, 1),
         body: SafeArea(
-          minimum: const EdgeInsets.only(top: 40, left: 16, right: 16),
-          child: SingleChildScrollView(
-            child: Column(
+            minimum: const EdgeInsets.only(top: 40, left: 16, right: 16),
+            child: ListView(
               children: [
                 Container(
                   child: AppBar(
@@ -81,7 +80,7 @@ class _CertificateState extends State<DigitalCertificate> {
                 ),
                 SizedBox(height: 8),
                 Container(
-                  height: 400,
+                  height: 490,
                   child: ListView(
                     children: [
                       SizedBox(height: 24),
@@ -462,32 +461,34 @@ class _CertificateState extends State<DigitalCertificate> {
                     ],
                   ),
                 ),
+                Container(
+                  padding: EdgeInsets.only(top: 16),
+                  child: SizedBox(
+                      width: double.infinity,
+                      height: 44,
+                      child: FlatButton(
+                        onPressed: () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => OTPAuthentication()),
+                          );
+                        },
+                        child: Text(
+                          'Kích hoạt'.toUpperCase(),
+                          style: TextStyle(
+                            fontSize: 14,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        textColor: Colors.white,
+                        color: Color.fromRGBO(26, 65, 171, 1),
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(6)),
+                      )),
+                )
               ],
-            ),
-          ),
-        ),
-        bottomNavigationBar: Padding(
-          padding: EdgeInsets.all(20.0),
-          child: FlatButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => OTPAuthentication()),
-              );
-            },
-            child: Text(
-              'Kích hoạt'.toUpperCase(),
-              style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-              ),
-            ),
-            textColor: Colors.white,
-            color: Color.fromRGBO(26, 65, 171, 1),
-            shape:
-                RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
-          ),
-        ),
+            )),
       ),
       debugShowCheckedModeBanner: false,
     );
