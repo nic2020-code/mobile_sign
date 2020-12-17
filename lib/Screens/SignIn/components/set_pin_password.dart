@@ -64,184 +64,206 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
           backgroundColor: Colors.white,
           key: _scaffoldKey,
           body: SafeArea(
-              minimum: const EdgeInsets.only(top: 40, left: 16, right: 16),
-              child: SingleChildScrollView(
+              minimum: const EdgeInsets.only(top: 40),
+              child: Container(
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Container(
-                      child: AppBar(
-                        elevation: 0,
-                        backgroundColor: Colors.transparent,
-                        leading: new IconButton(
-                          icon: new Icon(Icons.arrow_back_ios_rounded),
-                          color: Color.fromRGBO(9, 30, 66, 1),
-                          highlightColor: Colors.transparent,
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
+                    //Appbar
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Column(
+                          children: [
+                            IconButton(
+                              icon: new Icon(Icons.arrow_back_ios_rounded),
+                              color: Color.fromRGBO(9, 30, 66, 1),
+                              highlightColor: Colors.transparent,
+                              onPressed: () {
+                                Navigator.pop(context);
+                              },
+                            )
+                          ],
                         ),
-                        primary: false,
-                        actions: <Widget>[
-                          Container(
-                              margin:
-                                  const EdgeInsets.only(top: 22, bottom: 16),
-                              padding:
-                                  const EdgeInsets.only(top: 3.4, right: 2),
-                              decoration: BoxDecoration(
-                                border: Border.all(
-                                    width: 1,
-                                    color: Color.fromRGBO(17, 57, 125, 1)),
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(10.0)),
-                              ),
-                              child: Column(children: <Widget>[
-                                new LinearPercentIndicator(
-                                  backgroundColor: Colors.transparent,
-                                  width: 80.0,
-                                  lineHeight: 10.0,
-                                  percent: 1,
-                                  progressColor: Color.fromRGBO(17, 57, 125, 1),
+                        Column(
+                          children: [
+                            Container(
+                                margin: const EdgeInsets.only(
+                                    top: 16, bottom: 16, right: 16),
+                                padding: const EdgeInsets.only(
+                                    top: 2, right: 2, bottom: 2),
+                                decoration: BoxDecoration(
+                                  border: Border.all(
+                                      width: 1,
+                                      color: Color.fromRGBO(17, 57, 125, 1)),
+                                  borderRadius:
+                                      BorderRadius.all(Radius.circular(10.0)),
                                 ),
-                              ]))
-                        ],
-                      ),
+                                child: Column(children: <Widget>[
+                                  new LinearPercentIndicator(
+                                    backgroundColor: Colors.transparent,
+                                    width: 80.0,
+                                    lineHeight: 10.0,
+                                    percent: 1,
+                                    progressColor:
+                                        Color.fromRGBO(17, 57, 125, 1),
+                                  ),
+                                ]))
+                          ],
+                        )
+                      ],
                     ),
                     SizedBox(height: 38),
-                    Text(
-                      'Thiết lập mã PIN',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Gilroy',
-                        color: Color.fromRGBO(9, 30, 66, 1),
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Mã PIN này sẽ được sử dụng để xác thực khi bạn đăng nhập vào Mobile Sign.',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Gilroy',
-                          height: 1.4,
-                          color: Color.fromRGBO(80, 95, 121, 1)),
-                    ),
-                    SizedBox(height: 16),
-                    TextField(
-                      obscureText: _obscureText1,
-                      keyboardType: TextInputType.numberWithOptions(),
-                      textInputAction: TextInputAction.next,
-                      onSubmitted: (v) {
-                        FocusScope.of(context).requestFocus(focus);
-                      },
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ],
-                      maxLength: 6,
-                      autofocus: true,
-                      decoration: InputDecoration(
-                        suffixIcon: InkWell(
-                            onTap: _toggle1,
-                            child: Icon(
-                              _obscureText1
-                                  ? FontAwesomeIcons.eye
-                                  : FontAwesomeIcons.eyeSlash,
-                              size: 15.0,
-                              color: Colors.grey,
-                            )),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(17, 57, 125, 1))),
-                        labelText: 'Nhập mã PIN',
-                        errorText: _pinValidate
-                            ? '\* Mã PIN chưa chính xác\. Vui lòng nhập lại'
-                            : null,
-                        labelStyle: TextStyle(
-                            fontFamily: 'Gilroy',
-                            color: Color.fromRGBO(193, 199, 208, 1)),
-                      ),
-                      controller: numberFieldCtrl1,
-                      // focusNode: focusNode,
-                      onChanged: (text) {
-                        setState(() {
-                          _numberValidate1 = text;
-                        });
-                      },
-                    ),
-                    TextField(
-                      focusNode: focus,
-                      obscureText: _obscureText2,
-                      keyboardType: TextInputType.numberWithOptions(),
-                      textInputAction: TextInputAction.done,
-                      inputFormatters: <TextInputFormatter>[
-                        FilteringTextInputFormatter.digitsOnly
-                      ],
-                      maxLength: 6,
-                      decoration: InputDecoration(
-                        suffixIcon: InkWell(
-                            onTap: _toggle2,
-                            child: Icon(
-                              _obscureText2
-                                  ? FontAwesomeIcons.eye
-                                  : FontAwesomeIcons.eyeSlash,
-                              size: 15.0,
-                              color: Colors.grey,
-                            )),
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(17, 57, 125, 1))),
-                        labelText: 'Nhập lại mã PIN',
-                        errorText: _pinValidate
-                            ? '\* Mã PIN chưa chính xác\. Vui lòng nhập lại'
-                            : null,
-                        labelStyle: TextStyle(
-                            fontFamily: 'Gilroy',
-                            color: Color.fromRGBO(193, 199, 208, 1)),
-                      ),
-                      controller: numberFieldCtrl2,
-                      // focusNode: focusNode,
-                      onChanged: (text) {
-                        setState(() {
-                          _numberValidate2 = text;
-                        });
-                      },
-                    ),
-                    SizedBox(
-                      height: 48,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 44,
-                      child: new FlatButton(
-                        onPressed: () {
-                          setState(() {
-                            numberFieldCtrl2.text.isEmpty &
-                                        numberFieldCtrl1.text.isEmpty ||
-                                    numberFieldCtrl2.text.length &
-                                            numberFieldCtrl1.text.length <
-                                        6 ||
-                                    _numberValidate1 != _numberValidate2
-                                ? _pinValidate = true
-                                : Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) => SignInSuccess()));
-                          });
-                        },
-                        child: Text(
-                          'Xác nhận'.toUpperCase(),
-                          style: TextStyle(
-                            fontFamily: 'Gilroy',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                          ),
+
+                    //Set PIN password form
+                    Flexible(
+                        child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Thiết lập mã PIN',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Gilroy',
+                                color: Color.fromRGBO(9, 30, 66, 1),
+                              ),
+                            ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Mã PIN này sẽ được sử dụng để xác thực khi bạn đăng nhập vào Mobile Sign.',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Gilroy',
+                                  height: 1.4,
+                                  color: Color.fromRGBO(80, 95, 121, 1)),
+                            ),
+                            SizedBox(height: 16),
+                            TextField(
+                              obscureText: _obscureText1,
+                              keyboardType: TextInputType.numberWithOptions(),
+                              textInputAction: TextInputAction.next,
+                              onSubmitted: (v) {
+                                FocusScope.of(context).requestFocus(focus);
+                              },
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 6,
+                              autofocus: true,
+                              decoration: InputDecoration(
+                                suffixIcon: InkWell(
+                                    onTap: _toggle1,
+                                    child: Icon(
+                                      _obscureText1
+                                          ? FontAwesomeIcons.eye
+                                          : FontAwesomeIcons.eyeSlash,
+                                      size: 15.0,
+                                      color: Colors.grey,
+                                    )),
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Color.fromRGBO(17, 57, 125, 1))),
+                                labelText: 'Nhập mã PIN',
+                                errorText: _pinValidate
+                                    ? '\* Mã PIN chưa chính xác\. Vui lòng nhập lại'
+                                    : null,
+                                labelStyle: TextStyle(
+                                    fontFamily: 'Gilroy',
+                                    color: Color.fromRGBO(193, 199, 208, 1)),
+                              ),
+                              controller: numberFieldCtrl1,
+                              // focusNode: focusNode,
+                              onChanged: (text) {
+                                setState(() {
+                                  _numberValidate1 = text;
+                                });
+                              },
+                            ),
+                            TextField(
+                              focusNode: focus,
+                              obscureText: _obscureText2,
+                              keyboardType: TextInputType.numberWithOptions(),
+                              textInputAction: TextInputAction.done,
+                              inputFormatters: <TextInputFormatter>[
+                                FilteringTextInputFormatter.digitsOnly
+                              ],
+                              maxLength: 6,
+                              decoration: InputDecoration(
+                                suffixIcon: InkWell(
+                                    onTap: _toggle2,
+                                    child: Icon(
+                                      _obscureText2
+                                          ? FontAwesomeIcons.eye
+                                          : FontAwesomeIcons.eyeSlash,
+                                      size: 15.0,
+                                      color: Colors.grey,
+                                    )),
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Color.fromRGBO(17, 57, 125, 1))),
+                                labelText: 'Nhập lại mã PIN',
+                                errorText: _pinValidate
+                                    ? '\* Mã PIN chưa chính xác\. Vui lòng nhập lại'
+                                    : null,
+                                labelStyle: TextStyle(
+                                    fontFamily: 'Gilroy',
+                                    color: Color.fromRGBO(193, 199, 208, 1)),
+                              ),
+                              controller: numberFieldCtrl2,
+                              // focusNode: focusNode,
+                              onChanged: (text) {
+                                setState(() {
+                                  _numberValidate2 = text;
+                                });
+                              },
+                            ),
+                            SizedBox(
+                              height: 48,
+                            ),
+
+                            //Button
+                            SizedBox(
+                              width: double.infinity,
+                              height: 44,
+                              child: new FlatButton(
+                                onPressed: () {
+                                  setState(() {
+                                    numberFieldCtrl2.text.isEmpty &
+                                                numberFieldCtrl1.text.isEmpty ||
+                                            numberFieldCtrl2.text.length &
+                                                    numberFieldCtrl1
+                                                        .text.length <
+                                                6 ||
+                                            _numberValidate1 != _numberValidate2
+                                        ? _pinValidate = true
+                                        : Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    SignInSuccess()));
+                                  });
+                                },
+                                child: Text(
+                                  'Xác nhận'.toUpperCase(),
+                                  style: TextStyle(
+                                    fontFamily: 'Gilroy',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                textColor: Colors.white,
+                                color: Color.fromRGBO(17, 57, 125, 1),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(6)),
+                              ),
+                            )
+                          ],
                         ),
-                        textColor: Colors.white,
-                        color: Color.fromRGBO(17, 57, 125, 1),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6)),
                       ),
-                    )
+                    ))
                   ],
                 ),
               ))),

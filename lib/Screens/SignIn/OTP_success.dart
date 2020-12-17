@@ -9,7 +9,8 @@ class OTPSuccess extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.white,
         body: SafeArea(
-          child: Center(
+          minimum: const EdgeInsets.only(top: 30),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

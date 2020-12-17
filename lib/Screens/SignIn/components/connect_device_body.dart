@@ -97,10 +97,10 @@ class _FormConnectState extends State<ConnectDeviceBody>
           key: _scaffoldKey,
           body: SafeArea(
               minimum: const EdgeInsets.only(top: 40),
-              child: SingleChildScrollView(
+              child: Container(
                 child: Column(
-                  // crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
+                    //Appbar
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
@@ -144,97 +144,101 @@ class _FormConnectState extends State<ConnectDeviceBody>
                         )
                       ],
                     ),
-
-                    // Container(
-                    //   child: AppBar(
-                    //     elevation: 0,
-                    //     backgroundColor: Colors.transparent,
-                    //     leading: new ,
-                    //     primary: false,
-                    //     actions: <Widget>[
-
-                    //     ],
-                    //   ),
-                    // ),
                     SizedBox(height: 38),
-                    Text(
-                      'Kết nối thiết bị',
-                      style: TextStyle(
-                        fontSize: 24,
-                        fontWeight: FontWeight.bold,
-                        fontFamily: 'Gilroy',
-                        color: Color.fromRGBO(9, 30, 66, 1),
-                      ),
-                    ),
-                    SizedBox(height: 16),
-                    Text(
-                      'Chúng tôi đã gửi mã kết nối đến địa chỉ Email của bạn. Vui lòng kiểm tra và kết nối',
-                      style: TextStyle(
-                          fontSize: 16,
-                          fontFamily: 'Gilroy',
-                          height: 1.4,
-                          color: Color.fromRGBO(80, 95, 121, 1)),
-                    ),
-                    SizedBox(height: 16),
-                    TextField(
-                      inputFormatters: [
-                        FilteringTextInputFormatter.allow(RegExp("[a-z0-9]"))
-                      ],
-                      maxLength: 6,
-                      autofocus: true,
-                      decoration: InputDecoration(
-                        focusedBorder: UnderlineInputBorder(
-                            borderSide: BorderSide(
-                                color: Color.fromRGBO(17, 57, 125, 1))),
-                        labelText: 'Nhập mã kết nối',
-                        errorText: _connectValidate
-                            ? '\* Mã kết nối chưa chính xác\. Vui lòng thử lại'
-                            : null,
-                        labelStyle: TextStyle(
-                            fontFamily: 'Gilroy',
-                            color: Color.fromRGBO(193, 199, 208, 1)),
-                      ),
-                      controller: textFieldCtrl,
-                      // focusNode: focusNode,
-                      // onChanged: (text) {
-                      //   setState(() {
-                      //     _connect = text;
-                      //   });
-                      // },
-                    ),
-                    SizedBox(
-                      height: 48,
-                    ),
-                    SizedBox(
-                      width: double.infinity,
-                      height: 44,
-                      child: new FlatButton(
-                        onPressed: () {
-                          setState(() {
-                            textFieldCtrl.text.isEmpty ||
-                                    textFieldCtrl.text.length < 6
-                                ? _connectValidate = true
-                                : Navigator.push(
-                                    context,
-                                    MaterialPageRoute(
-                                        builder: (context) =>
-                                            DigitalCertificate()));
-                          });
-                        },
-                        child: Text(
-                          'Kết nối'.toUpperCase(),
-                          style: TextStyle(
-                            fontFamily: 'Gilroy',
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                          ),
+
+                    //Connect device form
+                    Flexible(
+                        child: Container(
+                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      child: SingleChildScrollView(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Text(
+                              'Kết nối thiết bị',
+                              style: TextStyle(
+                                fontSize: 24,
+                                fontWeight: FontWeight.bold,
+                                fontFamily: 'Gilroy',
+                                color: Color.fromRGBO(9, 30, 66, 1),
+                              ),
+                            ),
+                            SizedBox(height: 16),
+                            Text(
+                              'Chúng tôi đã gửi mã kết nối đến địa chỉ Email của bạn. Vui lòng kiểm tra và kết nối',
+                              style: TextStyle(
+                                  fontSize: 16,
+                                  fontFamily: 'Gilroy',
+                                  height: 1.4,
+                                  color: Color.fromRGBO(80, 95, 121, 1)),
+                            ),
+                            SizedBox(height: 16),
+                            TextField(
+                              inputFormatters: [
+                                FilteringTextInputFormatter.allow(
+                                    RegExp("[a-z0-9]"))
+                              ],
+                              maxLength: 6,
+                              autofocus: true,
+                              decoration: InputDecoration(
+                                focusedBorder: UnderlineInputBorder(
+                                    borderSide: BorderSide(
+                                        color: Color.fromRGBO(17, 57, 125, 1))),
+                                labelText: 'Nhập mã kết nối',
+                                errorText: _connectValidate
+                                    ? '\* Mã kết nối chưa chính xác\. Vui lòng thử lại'
+                                    : null,
+                                labelStyle: TextStyle(
+                                    fontFamily: 'Gilroy',
+                                    color: Color.fromRGBO(193, 199, 208, 1)),
+                              ),
+                              controller: textFieldCtrl,
+                              // focusNode: focusNode,
+                              // onChanged: (text) {
+                              //   setState(() {
+                              //     _connect = text;
+                              //   });
+                              // },
+                            ),
+                            SizedBox(
+                              height: 48,
+                            ),
+
+                            //Button
+                            SizedBox(
+                              width: double.infinity,
+                              height: 44,
+                              child: new FlatButton(
+                                onPressed: () {
+                                  setState(() {
+                                    textFieldCtrl.text.isEmpty ||
+                                            textFieldCtrl.text.length < 6
+                                        ? _connectValidate = true
+                                        : Navigator.push(
+                                            context,
+                                            MaterialPageRoute(
+                                                builder: (context) =>
+                                                    DigitalCertificate()));
+                                  });
+                                },
+                                child: Text(
+                                  'Kết nối'.toUpperCase(),
+                                  style: TextStyle(
+                                    fontFamily: 'Gilroy',
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w700,
+                                  ),
+                                ),
+                                textColor: Colors.white,
+                                color: Color.fromRGBO(17, 57, 125, 1),
+                                shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(6)),
+                              ),
+                            )
+                          ],
                         ),
-                        textColor: Colors.white,
-                        color: Color.fromRGBO(17, 57, 125, 1),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(6)),
                       ),
-                    )
+                    ))
                   ],
                 ),
               ))),
