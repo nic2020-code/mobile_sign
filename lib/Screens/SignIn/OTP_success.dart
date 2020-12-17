@@ -8,8 +8,7 @@ class OTPSuccess extends StatelessWidget {
       title: 'OTP Authentication Successful',
       home: Scaffold(
         backgroundColor: Colors.white,
-        body: SafeArea(
-          minimum: const EdgeInsets.only(top: 30),
+        body: Center(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,

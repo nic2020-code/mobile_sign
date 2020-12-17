@@ -499,7 +499,7 @@ class _CertificateState extends State<DigitalCertificate> {
 
         //Bottom button
         bottomNavigationBar: Padding(
-          padding: EdgeInsets.all(20.0),
+          padding: EdgeInsets.all(30.0),
           child: FlatButton(
             onPressed: () {
               Navigator.push(
@@ -514,6 +514,7 @@ class _CertificateState extends State<DigitalCertificate> {
                 fontWeight: FontWeight.w700,
               ),
             ),
+            height: 44,
             textColor: Colors.white,
             color: Color.fromRGBO(26, 65, 171, 1),
             shape:
