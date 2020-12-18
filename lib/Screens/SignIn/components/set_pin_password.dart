@@ -13,8 +13,6 @@ class SetPINPassword extends StatefulWidget {
 }
 
 class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
-  static final GlobalKey<ScaffoldState> _scaffoldKey =
-      new GlobalKey<ScaffoldState>();
   // final _connectController = TextEditingController();
   TextEditingController numberFieldCtrl1;
   TextEditingController numberFieldCtrl2;
@@ -62,7 +60,6 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
       title: "OTP Authentication",
       home: Scaffold(
           backgroundColor: Colors.white,
-          key: _scaffoldKey,
           body: SafeArea(
               minimum: const EdgeInsets.only(top: 40),
               child: Container(

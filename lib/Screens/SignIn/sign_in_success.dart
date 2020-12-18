@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myApp/Screens/SignInConnected/sign_in_widget.dart';
 
 class SignInSuccess extends StatelessWidget {
   @override
@@ -52,11 +53,11 @@ class SignInSuccess extends StatelessWidget {
                           height: 44,
                           child: new FlatButton(
                             onPressed: () {
-                              // Navigator.push(
-                              //   context,
-                              //   MaterialPageRoute(
-                              //       builder: (context) => ConnectDeviceBody()),
-                              // );
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => SignInConnected()),
+                              );
                             },
                             child: Text(
                               'Bắt đầu'.toUpperCase(),

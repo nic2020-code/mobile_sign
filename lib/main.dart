@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myApp/constants.dart';
 import 'introSlide.dart';
 import 'constants.dart';
-import 'Screens/SignInConnected/sign_in_widget.dart';
 
 void main() => runApp(new MyApp());
 

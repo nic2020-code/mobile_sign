@@ -15,8 +15,6 @@ class OTPAuthentication extends StatefulWidget {
 
 class _FormOTPState extends State<OTPAuthentication>
     with WidgetsBindingObserver {
-  static final GlobalKey<ScaffoldState> _scaffoldKey =
-      new GlobalKey<ScaffoldState>();
   // final _connectController = TextEditingController();
   TextEditingController numberFieldCtrl;
   // FocusNode focusNode;
@@ -45,7 +43,6 @@ class _FormOTPState extends State<OTPAuthentication>
       title: "OTP Authentication",
       home: Scaffold(
           backgroundColor: Colors.white,
-          key: _scaffoldKey,
           body: SafeArea(
               minimum: const EdgeInsets.only(top: 40),
               child: Container(
@@ -192,9 +189,9 @@ class _FormOTPState extends State<OTPAuthentication>
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: [
                                 InkWell(
-                                    child: new Text(
+                                    child: Text(
                                       'Gửi lại mã OTP',
-                                      style: new TextStyle(
+                                      style: TextStyle(
                                           color: Color.fromRGBO(52, 69, 99, 1),
                                           fontFamily: 'Gilroy',
                                           fontWeight: FontWeight.w600),

@@ -65,8 +65,6 @@ class ConnectDeviceBody extends StatefulWidget {
 
 class _FormConnectState extends State<ConnectDeviceBody>
     with WidgetsBindingObserver {
-  static final GlobalKey<ScaffoldState> _scaffoldKey =
-      new GlobalKey<ScaffoldState>();
   // final _connectController = TextEditingController();
   TextEditingController textFieldCtrl;
   // FocusNode focusNode;
@@ -94,7 +92,6 @@ class _FormConnectState extends State<ConnectDeviceBody>
     return MaterialApp(
       title: "Connect Device",
       home: Scaffold(
-          key: _scaffoldKey,
           body: SafeArea(
               minimum: const EdgeInsets.only(top: 40),
               child: Container(
