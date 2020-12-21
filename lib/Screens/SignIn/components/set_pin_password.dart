@@ -151,6 +151,7 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
                               maxLength: 6,
                               autofocus: true,
                               decoration: InputDecoration(
+                                counterText: "",
                                 suffixIcon: InkWell(
                                     onTap: _toggle1,
                                     child: Icon(
@@ -176,8 +177,12 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
                               onChanged: (text) {
                                 setState(() {
                                   _numberValidate1 = text;
+                                  _pinValidate = false;
                                 });
                               },
+                            ),
+                            SizedBox(
+                              height: 40,
                             ),
                             TextField(
                               focusNode: focus,
@@ -189,6 +194,7 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
                               ],
                               maxLength: 6,
                               decoration: InputDecoration(
+                                counterText: "",
                                 suffixIcon: InkWell(
                                     onTap: _toggle2,
                                     child: Icon(
@@ -213,6 +219,7 @@ class _SetPINState extends State<SetPINPassword> with WidgetsBindingObserver {
                               // focusNode: focusNode,
                               onChanged: (text) {
                                 setState(() {
+                                  _pinValidate = false;
                                   _numberValidate2 = text;
                                 });
                               },

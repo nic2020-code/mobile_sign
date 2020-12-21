@@ -69,8 +69,8 @@ class _FormConnectState extends State<ConnectDeviceBody>
   TextEditingController textFieldCtrl;
   // FocusNode focusNode;
   bool _connectValidate = false;
+  String _userCode;
 
-  // String _connect;
   @override
   void initState() {
     textFieldCtrl = TextEditingController();
@@ -191,11 +191,12 @@ class _FormConnectState extends State<ConnectDeviceBody>
                               ),
                               controller: textFieldCtrl,
                               // focusNode: focusNode,
-                              // onChanged: (text) {
-                              //   setState(() {
-                              //     _connect = text;
-                              //   });
-                              // },
+                              onChanged: (text) {
+                                setState(() {
+                                  _userCode = text;
+                                  _connectValidate = false;
+                                });
+                              },
                             ),
                             SizedBox(
                               height: 48,

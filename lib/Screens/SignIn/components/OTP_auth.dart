@@ -19,6 +19,7 @@ class _FormOTPState extends State<OTPAuthentication>
   TextEditingController numberFieldCtrl;
   // FocusNode focusNode;
   bool _otpValidate = false;
+  String _inputOTP;
 
   // String _connect;
   @override
@@ -129,6 +130,7 @@ class _FormOTPState extends State<OTPAuthentication>
                               maxLength: 4,
                               autofocus: true,
                               decoration: InputDecoration(
+                                counterText: "",
                                 focusedBorder: UnderlineInputBorder(
                                     borderSide: BorderSide(
                                         color: Color.fromRGBO(17, 57, 125, 1))),
@@ -142,11 +144,12 @@ class _FormOTPState extends State<OTPAuthentication>
                               ),
                               controller: numberFieldCtrl,
                               // focusNode: focusNode,
-                              // onChanged: (text) {
-                              //   setState(() {
-                              //     _connect = text;
-                              //   });
-                              // },
+                              onChanged: (text) {
+                                setState(() {
+                                  _inputOTP = text;
+                                  _otpValidate = false;
+                                });
+                              },
                             ),
                             SizedBox(
                               height: 56,
