@@ -56,14 +56,14 @@ import 'digital_certificate_validate.dart';
 //   }
 // }
 
-class ConnectDeviceBody extends StatefulWidget {
+class ConnectDevice extends StatefulWidget {
   @override
   State<StatefulWidget> createState() {
     return _FormConnectState();
   }
 }
 
-class _FormConnectState extends State<ConnectDeviceBody>
+class _FormConnectState extends State<ConnectDevice>
     with WidgetsBindingObserver {
   // final _connectController = TextEditingController();
   TextEditingController textFieldCtrl;

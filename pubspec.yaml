@@ -24,6 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.0
+  device_info: ^1.0.0
   flutter_native_splash: ^0.1.9
   font_awesome_flutter: ^8.10.1
   intro_slider: ^2.3.3

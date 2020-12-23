@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 import 'OTP_auth.dart';
+import 'package:device_info/device_info.dart';
 
 class DigitalCertificate extends StatefulWidget {
   @override
@@ -13,6 +14,28 @@ enum SingingCharacter { digitalcertificate }
 
 class _CertificateState extends State<DigitalCertificate> {
   SingingCharacter _character = SingingCharacter.digitalcertificate;
+  DeviceInfoPlugin deviceInfo =
+      DeviceInfoPlugin(); // instantiate device info plugin
+  AndroidDeviceInfo androidDeviceInfo;
+
+  String id, model, androidid;
+  bool isphysicaldevice;
+  @override
+  void initState() {
+    super.initState();
+    getDeviceinfo();
+  }
+
+  void getDeviceinfo() async {
+    androidDeviceInfo = await deviceInfo
+        .androidInfo; // instantiate Android Device Infoformation
+    setState(() {
+      id = androidDeviceInfo.id;
+      model = androidDeviceInfo.model;
+      isphysicaldevice = androidDeviceInfo.isPhysicalDevice;
+      androidid = androidDeviceInfo.androidId;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -122,7 +145,7 @@ class _CertificateState extends State<DigitalCertificate> {
                                   child: Column(
                                     children: [
                                       Text(
-                                        'IPhone X',
+                                        '$model',
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Gilroy',
@@ -138,7 +161,7 @@ class _CertificateState extends State<DigitalCertificate> {
                                   child: Column(
                                     children: [
                                       Text(
-                                        'HFNS-JSHEFHU-ZJSD-BHD',
+                                        '$androidid'.toUpperCase(),
                                         style: TextStyle(
                                             fontSize: 14,
                                             fontFamily: 'Gilroy',
