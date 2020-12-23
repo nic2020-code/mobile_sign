@@ -20,10 +20,3 @@ class MyApp extends StatelessWidget {
     );
   }
 }
-
-class IntroScreen extends StatefulWidget {
-  IntroScreen({Key key}) : super(key: key);
-
-  @override
-  IntroScreenState createState() => new IntroScreenState();
-}

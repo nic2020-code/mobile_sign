@@ -2,10 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:intro_slider/dot_animation_enum.dart';
 import 'package:intro_slider/slide_object.dart';
-import 'package:myApp/main.dart';
 // import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:intro_slider/intro_slider.dart';
 import 'Screens/Welcome/welcome_screen.dart';
+
+class IntroScreen extends StatefulWidget {
+  IntroScreen({Key key}) : super(key: key);
+
+  @override
+  IntroScreenState createState() => new IntroScreenState();
+}
 
 class IntroScreenState extends State<IntroScreen> {
   List<Slide> slides = new List();
@@ -140,13 +146,13 @@ class IntroScreenState extends State<IntroScreen> {
       tabs.add(Container(
         width: double.infinity,
         height: double.infinity,
-        child: Container(
-          child: ListView(
+        child: SingleChildScrollView(
+          child: Column(
             children: <Widget>[
               GestureDetector(
                   child: Image.asset(
                 currentSlide.pathImage,
-                fit: BoxFit.contain,
+                fit: BoxFit.cover,
               )),
               Container(
                 child: Text(
@@ -206,7 +212,7 @@ class IntroScreenState extends State<IntroScreen> {
       backgroundColorAllSlides: Color.fromRGBO(248, 252, 255, 1),
 
       // Show or hide status bar
-      shouldHideStatusBar: true,
+      // shouldHideStatusBar: true,
 
       // On tab change completed
       onTabChangeCompleted: this.onTabChangeCompleted,

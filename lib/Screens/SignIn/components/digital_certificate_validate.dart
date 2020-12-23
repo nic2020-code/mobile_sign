@@ -261,213 +261,21 @@ class _CertificateState extends State<DigitalCertificate> {
                                           },
                                         ),
                                       ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 16, bottom: 16),
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  '000-112',
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          107, 119, 140, 1),
-                                                      fontFamily: 'Gilroy',
-                                                      fontSize: 14),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                              child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    right: 16, bottom: 16),
-                                                child: Text(
-                                                  'Đã kích hoạt',
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          183, 192, 204, 1),
-                                                      fontFamily: 'Gilroy',
-                                                      fontSize: 14,
-                                                      fontStyle:
-                                                          FontStyle.italic),
-                                                ),
-                                              )
-                                            ],
-                                          ))
-                                        ],
-                                      ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 16, bottom: 16),
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  '000-183',
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          107, 119, 140, 1),
-                                                      fontFamily: 'Gilroy',
-                                                      fontSize: 14),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                              child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    right: 16, bottom: 16),
-                                                child: Text('Đã kích hoạt',
-                                                    style: TextStyle(
-                                                        color: Color.fromRGBO(
-                                                            183, 192, 204, 1),
-                                                        fontFamily: 'Gilroy',
-                                                        fontSize: 14,
-                                                        fontStyle:
-                                                            FontStyle.italic)),
-                                              )
-                                            ],
-                                          ))
-                                        ],
-                                      ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 16, bottom: 16),
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  '000-165',
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          107, 119, 140, 1),
-                                                      fontFamily: 'Gilroy',
-                                                      fontSize: 14),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                              child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    right: 16, bottom: 16),
-                                                child: Text('Đã kích hoạt',
-                                                    style: TextStyle(
-                                                        color: Color.fromRGBO(
-                                                            183, 192, 204, 1),
-                                                        fontFamily: 'Gilroy',
-                                                        fontSize: 14,
-                                                        fontStyle:
-                                                            FontStyle.italic)),
-                                              )
-                                            ],
-                                          ))
-                                        ],
-                                      ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 16, bottom: 16),
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  '000-137',
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          107, 119, 140, 1),
-                                                      fontFamily: 'Gilroy',
-                                                      fontSize: 14),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                              child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    right: 16, bottom: 16),
-                                                child: Text('Đã kích hoạt',
-                                                    style: TextStyle(
-                                                        color: Color.fromRGBO(
-                                                            183, 192, 204, 1),
-                                                        fontFamily: 'Gilroy',
-                                                        fontSize: 14,
-                                                        fontStyle:
-                                                            FontStyle.italic)),
-                                              )
-                                            ],
-                                          ))
-                                        ],
-                                      ),
-                                      Row(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: [
-                                          Padding(
-                                            padding: EdgeInsets.only(
-                                                left: 16, bottom: 16),
-                                            child: Column(
-                                              children: [
-                                                Text(
-                                                  '000-115',
-                                                  style: TextStyle(
-                                                      color: Color.fromRGBO(
-                                                          107, 119, 140, 1),
-                                                      fontFamily: 'Gilroy',
-                                                      fontSize: 14),
-                                                )
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                              child: Row(
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.end,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsets.only(
-                                                    right: 16, bottom: 16),
-                                                child: Text('Đã kích hoạt',
-                                                    style: TextStyle(
-                                                        color: Color.fromRGBO(
-                                                            183, 192, 204, 1),
-                                                        fontFamily: 'Gilroy',
-                                                        fontSize: 14,
-                                                        fontStyle:
-                                                            FontStyle.italic)),
-                                              )
-                                            ],
-                                          ))
-                                        ],
-                                      ),
+                                      _listOfCertificate(
+                                          certificateID: '000-112',
+                                          stateOfCertificate: 'Đã kích hoạt'),
+                                      _listOfCertificate(
+                                          certificateID: '000-183',
+                                          stateOfCertificate: 'Đã kích hoạt'),
+                                      _listOfCertificate(
+                                          certificateID: '000-165',
+                                          stateOfCertificate: 'Đã kích hoạt'),
+                                      _listOfCertificate(
+                                          certificateID: '000-137',
+                                          stateOfCertificate: 'Đã kích hoạt'),
+                                      _listOfCertificate(
+                                          certificateID: '000-115',
+                                          stateOfCertificate: 'Đã kích hoạt'),
                                     ],
                                   ),
                                 ),
@@ -478,16 +286,6 @@ class _CertificateState extends State<DigitalCertificate> {
                         SizedBox(
                           height: 20,
                         )
-                        //Infomation of digital certificate
-                        // Container(
-                        //   height: 500,
-                        //   child: ListView(
-                        //     children: [
-                        //       SizedBox(height: 18),
-
-                        //     ],
-                        //   ),
-                        // ),
                       ],
                     ),
                   ),
@@ -525,4 +323,43 @@ class _CertificateState extends State<DigitalCertificate> {
       debugShowCheckedModeBanner: false,
     );
   }
+}
+
+Widget _listOfCertificate({String certificateID, String stateOfCertificate}) {
+  return Row(
+    crossAxisAlignment: CrossAxisAlignment.start,
+    children: [
+      Padding(
+        padding: EdgeInsets.only(left: 16, bottom: 16),
+        child: Column(
+          children: [
+            Text(
+              certificateID,
+              style: TextStyle(
+                  color: Color.fromRGBO(107, 119, 140, 1),
+                  fontFamily: 'Gilroy',
+                  fontSize: 14),
+            )
+          ],
+        ),
+      ),
+      Expanded(
+          child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Padding(
+            padding: EdgeInsets.only(right: 16, bottom: 16),
+            child: Text(
+              stateOfCertificate,
+              style: TextStyle(
+                  color: Color.fromRGBO(183, 192, 204, 1),
+                  fontFamily: 'Gilroy',
+                  fontSize: 14,
+                  fontStyle: FontStyle.italic),
+            ),
+          )
+        ],
+      ))
+    ],
+  );
 }

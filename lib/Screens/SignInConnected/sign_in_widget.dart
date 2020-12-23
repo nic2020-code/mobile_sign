@@ -81,58 +81,56 @@ class _FormConnectedState extends State<SignInConnected>
                         fontSize: 14.0),
                   ),
                   Container(
-                      margin: EdgeInsets.only(top: 64, bottom: 12),
-                      padding:
-                          const EdgeInsets.only(top: 12, bottom: 12, right: 40),
-                      height: 58,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(8.0)),
-                      child: Form(
-                        autovalidateMode: AutovalidateMode.onUserInteraction,
-                        child: TextField(
-                          cursorColor: Colors.white,
-                          style: TextStyle(fontSize: 32, letterSpacing: 12),
-                          textAlign: TextAlign.center,
-                          obscureText: true,
-                          keyboardType: TextInputType.numberWithOptions(),
-                          textInputAction: TextInputAction.done,
-                          inputFormatters: <TextInputFormatter>[
-                            FilteringTextInputFormatter.digitsOnly
-                          ],
-                          maxLength: 6,
-                          autofocus: true,
-                          decoration: InputDecoration(
-                            contentPadding: EdgeInsets.zero,
-                            labelStyle: TextStyle(
-                              fontFamily: 'Gilroy',
-                              color: Color.fromRGBO(193, 199, 208, 1),
-                            ),
-                            counterText: "",
-                            focusedBorder: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                            ),
-                            border: OutlineInputBorder(
-                              borderSide: BorderSide.none,
-                            ),
-                            prefixIcon: Icon(
-                              Icons.lock,
-                              color: Color.fromRGBO(183, 192, 204, 1),
-                            ),
-                            // errorText: _pinValidate
-                            //     ? '\*Mật khẩu chưa chính xác\. Bạn còn 3 lần thử'
-                            //     : null,
-                          ),
-                          controller: numberFieldCtrl,
-                          // focusNode: focusNode,
-                          onChanged: (text) {
-                            setState(() {
-                              _numberValidate = text;
-                              _pinValidate = false;
-                            });
-                          },
+                    margin: EdgeInsets.only(top: 64, bottom: 12),
+                    padding:
+                        const EdgeInsets.only(top: 12, bottom: 12, right: 40),
+                    height: 58,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(8.0)),
+                    child: TextField(
+                      cursorColor: Colors.white,
+                      style: TextStyle(fontSize: 32, letterSpacing: 12),
+                      textAlign: TextAlign.center,
+                      obscureText: true,
+                      keyboardType: TextInputType.numberWithOptions(),
+                      textInputAction: TextInputAction.done,
+                      inputFormatters: <TextInputFormatter>[
+                        FilteringTextInputFormatter.digitsOnly
+                      ],
+                      maxLength: 6,
+                      autofocus: true,
+                      decoration: InputDecoration(
+                        contentPadding: EdgeInsets.zero,
+                        labelStyle: TextStyle(
+                          fontFamily: 'Gilroy',
+                          color: Color.fromRGBO(193, 199, 208, 1),
                         ),
-                      )),
+                        counterText: "",
+                        focusedBorder: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        ),
+                        border: OutlineInputBorder(
+                          borderSide: BorderSide.none,
+                        ),
+                        prefixIcon: Icon(
+                          Icons.lock,
+                          color: Color.fromRGBO(183, 192, 204, 1),
+                        ),
+                        // errorText: _pinValidate
+                        //     ? '\*Mật khẩu chưa chính xác\. Bạn còn 3 lần thử'
+                        //     : null,
+                      ),
+                      controller: numberFieldCtrl,
+                      // focusNode: focusNode,
+                      onChanged: (text) {
+                        setState(() {
+                          _numberValidate = text;
+                          _pinValidate = false;
+                        });
+                      },
+                    ),
+                  ),
                   Visibility(
                       maintainSize: true,
                       maintainAnimation: true,
@@ -152,21 +150,6 @@ class _FormConnectedState extends State<SignInConnected>
                     height: 48,
                     child: new FlatButton(
                       onPressed: showWidget,
-                      // () {
-                      //   setState(() {
-                      //     numberFieldCtrl.text.isEmpty ||
-                      //             numberFieldCtrl.text.length < 6
-                      //         // _numberValidate != 123456
-                      //         ? _scaffoldKey.currentState.showSnackBar(SnackBar(
-                      //             content: Text('Mật khẩu chưa chính xác'),
-                      //             duration: Duration(seconds: 3),
-                      //           ))
-                      //         : Navigator.push(
-                      //             context,
-                      //             MaterialPageRoute(
-                      //                 builder: (context) => SignInSuccess()));
-                      //   });
-                      // },
                       child: Text(
                         'Đăng nhập'.toUpperCase(),
                         style: TextStyle(

@@ -24,7 +24,7 @@ class Body extends StatelessWidget {
                 'assets/images/logo_welcome.png',
               ),
               Container(
-                margin: EdgeInsets.only(top: 36),
+                margin: EdgeInsets.only(right: 16, left: 16, top: 36),
                 child: Text(
                   '\" Làm việc từ xa, không ngại khoảng cách \"'.toUpperCase(),
                   style: TextStyle(
