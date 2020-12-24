@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:myApp/constants.dart';
 import 'digital_certificate_validate.dart';
 
 // class ConnectDeviceBody extends StatelessWidget {
@@ -78,6 +78,22 @@ class _FormConnectState extends State<ConnectDevice>
     super.initState();
   }
 
+  void _validateButton() {
+    setState(() {
+      textFieldCtrl.text.isEmpty || textFieldCtrl.text.length < 6
+          ? _connectValidate = true
+          : Navigator.push(context,
+              MaterialPageRoute(builder: (context) => DigitalCertificate()));
+    });
+  }
+
+  void _textChange(text) {
+    setState(() {
+      _userCode = text;
+      _connectValidate = false;
+    });
+  }
+
   // void _rebuildOnFocusChange() => setState(() {});
 
   // void _onButtonPressed() {}
@@ -98,78 +114,20 @@ class _FormConnectState extends State<ConnectDevice>
                 child: Column(
                   children: <Widget>[
                     //Appbar
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            IconButton(
-                              icon: new Icon(Icons.arrow_back_ios_rounded),
-                              color: Color.fromRGBO(9, 30, 66, 1),
-                              highlightColor: Colors.transparent,
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                                margin: const EdgeInsets.only(
-                                    top: 16, bottom: 16, right: 16),
-                                padding: const EdgeInsets.only(
-                                    top: 2, right: 2, bottom: 2),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 1,
-                                      color: Color.fromRGBO(17, 57, 125, 1)),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(children: <Widget>[
-                                  new LinearPercentIndicator(
-                                    backgroundColor: Colors.transparent,
-                                    width: 80.0,
-                                    lineHeight: 10.0,
-                                    percent: 0.25,
-                                    progressColor:
-                                        Color.fromRGBO(17, 57, 125, 1),
-                                  ),
-                                ]))
-                          ],
-                        )
-                      ],
-                    ),
+                    appBar(context, 0.25),
                     SizedBox(height: 38),
 
                     //Connect device form
                     Flexible(
                         child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      padding: containerPadding,
                       child: SingleChildScrollView(
                         child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Kết nối thiết bị',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Gilroy',
-                                color: Color.fromRGBO(9, 30, 66, 1),
-                              ),
-                            ),
-                            SizedBox(height: 16),
-                            Text(
-                              'Chúng tôi đã gửi mã kết nối đến địa chỉ Email của bạn. Vui lòng kiểm tra và kết nối',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'Gilroy',
-                                  height: 1.4,
-                                  color: Color.fromRGBO(80, 95, 121, 1)),
-                            ),
-                            SizedBox(height: 16),
+                            headingTitle(
+                                title: 'Kết nối thiết bị',
+                                subtitle:
+                                    'Chúng tôi đã gửi mã kết nối đến địa chỉ Email của bạn. Vui lòng kiểm tra và kết nối'),
                             TextField(
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(
@@ -186,17 +144,12 @@ class _FormConnectState extends State<ConnectDevice>
                                     ? '\* Mã kết nối chưa chính xác\. Vui lòng thử lại'
                                     : null,
                                 labelStyle: TextStyle(
-                                    fontFamily: 'Gilroy',
+                                    fontFamily: kPrimaryFontFamily,
                                     color: Color.fromRGBO(193, 199, 208, 1)),
                               ),
                               controller: textFieldCtrl,
                               // focusNode: focusNode,
-                              onChanged: (text) {
-                                setState(() {
-                                  _userCode = text;
-                                  _connectValidate = false;
-                                });
-                              },
+                              onChanged: _textChange,
                             ),
                             SizedBox(
                               height: 48,
@@ -207,28 +160,17 @@ class _FormConnectState extends State<ConnectDevice>
                               width: double.infinity,
                               height: 44,
                               child: new FlatButton(
-                                onPressed: () {
-                                  setState(() {
-                                    textFieldCtrl.text.isEmpty ||
-                                            textFieldCtrl.text.length < 6
-                                        ? _connectValidate = true
-                                        : Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    DigitalCertificate()));
-                                  });
-                                },
+                                onPressed: _validateButton,
                                 child: Text(
                                   'Kết nối'.toUpperCase(),
                                   style: TextStyle(
-                                    fontFamily: 'Gilroy',
+                                    fontFamily: kPrimaryFontFamily,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                textColor: Colors.white,
-                                color: Color.fromRGBO(17, 57, 125, 1),
+                                textColor: textButtonColor,
+                                color: buttonColor,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6)),
                               ),

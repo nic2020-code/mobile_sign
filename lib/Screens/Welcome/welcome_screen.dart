@@ -1,9 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:myApp/Screens/SignIn/components/connect_device.dart';
+import 'package:myApp/constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    void _nextPage() {
+      Navigator.push(
+        context,
+        MaterialPageRoute(builder: (context) => ConnectDevice()),
+      );
+    }
+
     return Scaffold(
         body: Stack(
       children: <Widget>[
@@ -48,13 +56,7 @@ class WelcomeScreen extends StatelessWidget {
                   width: double.infinity,
                   height: 44,
                   child: new FlatButton(
-                    onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => ConnectDevice()),
-                      );
-                    },
+                    onPressed: _nextPage,
                     child: Text(
                       'Đăng nhập'.toUpperCase(),
                       style: TextStyle(
@@ -62,8 +64,8 @@ class WelcomeScreen extends StatelessWidget {
                         fontWeight: FontWeight.w700,
                       ),
                     ),
-                    textColor: Colors.white,
-                    color: Color.fromRGBO(26, 65, 171, 1),
+                    textColor: textButtonColor,
+                    color: buttonColor,
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(6)),
                   )),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myApp/Screens/SignInConnected/sign_in_widget.dart';
+import 'package:myApp/constants.dart';
 
 class SignInSuccess extends StatelessWidget {
   @override
@@ -24,7 +25,7 @@ class SignInSuccess extends StatelessWidget {
                   style: TextStyle(
                       fontSize: 18,
                       fontWeight: FontWeight.bold,
-                      fontFamily: 'Gilroy',
+                      fontFamily: kPrimaryFontFamily,
                       color: Color.fromRGBO(9, 30, 66, 1)),
                 ),
                 SizedBox(
@@ -35,7 +36,7 @@ class SignInSuccess extends StatelessWidget {
                   textAlign: TextAlign.center,
                   style: TextStyle(
                       fontSize: 14,
-                      fontFamily: 'Gilroy',
+                      fontFamily: kPrimaryFontFamily,
                       height: 1.4,
                       color: Color.fromRGBO(80, 95, 121, 1)),
                 ),
@@ -62,9 +63,9 @@ class SignInSuccess extends StatelessWidget {
                             child: Text(
                               'Bắt đầu'.toUpperCase(),
                               style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w700,
-                              ),
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.w700,
+                                  fontFamily: kPrimaryFontFamily),
                             ),
                             textColor: Colors.white,
                             color: Color.fromRGBO(26, 65, 171, 1),

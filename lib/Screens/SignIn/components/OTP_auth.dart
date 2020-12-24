@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 // import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:myApp/constants.dart';
 import 'package:flutter/services.dart';
 // import 'package:url_launcher/url_launcher.dart';
 import 'package:myApp/Screens/SignIn/OTP_success.dart';
@@ -29,6 +29,23 @@ class _FormOTPState extends State<OTPAuthentication>
     super.initState();
   }
 
+  void _otpChange(text) {
+    setState(() {
+      _inputOTP = text;
+      _otpValidate = false;
+    });
+  }
+
+  void _otpButton() {
+    setState(() {
+      numberFieldCtrl.text.isEmpty || numberFieldCtrl.text.length < 4
+          ? _otpValidate = true
+          // : _otpValidate = false;
+          : Navigator.push(
+              context, MaterialPageRoute(builder: (context) => OTPSuccess()));
+    });
+  }
+
   // void _rebuildOnFocusChange() => setState(() {});
 
   // void _onButtonPressed() {}
@@ -50,107 +67,46 @@ class _FormOTPState extends State<OTPAuthentication>
                 child: Column(
                   children: <Widget>[
                     //Appbar
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Column(
-                          children: [
-                            IconButton(
-                              icon: new Icon(Icons.arrow_back_ios_rounded),
-                              color: Color.fromRGBO(9, 30, 66, 1),
-                              highlightColor: Colors.transparent,
-                              onPressed: () {
-                                Navigator.pop(context);
-                              },
-                            )
-                          ],
-                        ),
-                        Column(
-                          children: [
-                            Container(
-                                margin: const EdgeInsets.only(
-                                    top: 16, bottom: 16, right: 16),
-                                padding: const EdgeInsets.only(
-                                    top: 2, right: 2, bottom: 2),
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                      width: 1,
-                                      color: Color.fromRGBO(17, 57, 125, 1)),
-                                  borderRadius:
-                                      BorderRadius.all(Radius.circular(10.0)),
-                                ),
-                                child: Column(children: <Widget>[
-                                  new LinearPercentIndicator(
-                                    backgroundColor: Colors.transparent,
-                                    width: 80.0,
-                                    lineHeight: 10.0,
-                                    percent: 0.75,
-                                    progressColor:
-                                        Color.fromRGBO(17, 57, 125, 1),
-                                  ),
-                                ]))
-                          ],
-                        )
-                      ],
-                    ),
+                    appBar(context, 0.75),
                     SizedBox(height: 38),
                     Flexible(
                         child: Container(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
+                      padding: containerPadding,
                       child: SingleChildScrollView(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text(
-                              'Xác thực OTP',
-                              style: TextStyle(
-                                fontSize: 24,
-                                fontWeight: FontWeight.bold,
-                                fontFamily: 'Gilroy',
-                                color: Color.fromRGBO(9, 30, 66, 1),
-                              ),
-                            ),
-                            SizedBox(height: 16),
-                            Text(
-                              'Vui lòng nhập mã OTP để tiếp tục thao tác',
-                              style: TextStyle(
-                                  fontSize: 16,
-                                  fontFamily: 'Gilroy',
-                                  height: 1.4,
-                                  color: Color.fromRGBO(80, 95, 121, 1)),
-                            ),
-                            SizedBox(height: 16),
+                            headingTitle(
+                                title: 'Xác thực OTP',
+                                subtitle:
+                                    'Vui lòng nhập mã OTP để tiếp tục thao tác'),
                             TextField(
-                              style: TextStyle(fontSize: 32, letterSpacing: 16),
-                              keyboardType: TextInputType.numberWithOptions(),
-                              textInputAction: TextInputAction.done,
-                              inputFormatters: <TextInputFormatter>[
-                                FilteringTextInputFormatter.digitsOnly
-                              ],
-                              maxLength: 4,
-                              autofocus: true,
-                              decoration: InputDecoration(
-                                counterText: "",
-                                focusedBorder: UnderlineInputBorder(
-                                    borderSide: BorderSide(
-                                        color: Color.fromRGBO(17, 57, 125, 1))),
-                                // labelText: 'Nhập mã OTP',
-                                errorText: _otpValidate
-                                    ? '\* Mã OTP chưa chính xác\. Vui lòng thử lại'
-                                    : null,
-                                labelStyle: TextStyle(
-                                    fontFamily: 'Gilroy',
-                                    color: Color.fromRGBO(193, 199, 208, 1)),
-                              ),
-                              controller: numberFieldCtrl,
-                              // focusNode: focusNode,
-                              onChanged: (text) {
-                                setState(() {
-                                  _inputOTP = text;
-                                  _otpValidate = false;
-                                });
-                              },
-                            ),
+                                style:
+                                    TextStyle(fontSize: 32, letterSpacing: 16),
+                                keyboardType: TextInputType.numberWithOptions(),
+                                textInputAction: TextInputAction.done,
+                                inputFormatters: <TextInputFormatter>[
+                                  FilteringTextInputFormatter.digitsOnly
+                                ],
+                                maxLength: 4,
+                                autofocus: true,
+                                decoration: InputDecoration(
+                                  counterText: "",
+                                  focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                          color:
+                                              Color.fromRGBO(17, 57, 125, 1))),
+                                  // labelText: 'Nhập mã OTP',
+                                  errorText: _otpValidate
+                                      ? '\* Mã OTP chưa chính xác\. Vui lòng thử lại'
+                                      : null,
+                                  labelStyle: TextStyle(
+                                      fontFamily: kPrimaryFontFamily,
+                                      color: Color.fromRGBO(193, 199, 208, 1)),
+                                ),
+                                controller: numberFieldCtrl,
+                                // focusNode: focusNode,
+                                onChanged: _otpChange),
                             SizedBox(
                               height: 56,
                             ),
@@ -158,29 +114,17 @@ class _FormOTPState extends State<OTPAuthentication>
                               width: double.infinity,
                               height: 44,
                               child: new FlatButton(
-                                onPressed: () {
-                                  setState(() {
-                                    numberFieldCtrl.text.isEmpty ||
-                                            numberFieldCtrl.text.length < 4
-                                        ? _otpValidate = true
-                                        // : _otpValidate = false;
-                                        : Navigator.push(
-                                            context,
-                                            MaterialPageRoute(
-                                                builder: (context) =>
-                                                    OTPSuccess()));
-                                  });
-                                },
+                                onPressed: _otpButton,
                                 child: Text(
                                   'Xác nhận'.toUpperCase(),
                                   style: TextStyle(
-                                    fontFamily: 'Gilroy',
+                                    fontFamily: kPrimaryFontFamily,
                                     fontSize: 14,
                                     fontWeight: FontWeight.w700,
                                   ),
                                 ),
-                                textColor: Colors.white,
-                                color: Color.fromRGBO(17, 57, 125, 1),
+                                textColor: textButtonColor,
+                                color: buttonColor,
                                 shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(6)),
                               ),
@@ -196,7 +140,7 @@ class _FormOTPState extends State<OTPAuthentication>
                                       'Gửi lại mã OTP',
                                       style: TextStyle(
                                           color: Color.fromRGBO(52, 69, 99, 1),
-                                          fontFamily: 'Gilroy',
+                                          fontFamily: kPrimaryFontFamily,
                                           fontWeight: FontWeight.w600),
                                     ),
                                     onTap: () => {})

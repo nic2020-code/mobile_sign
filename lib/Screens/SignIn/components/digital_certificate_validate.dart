@@ -1,5 +1,7 @@
+import 'dart:io' show Platform;
+
 import 'package:flutter/material.dart';
-import 'package:percent_indicator/percent_indicator.dart';
+import 'package:myApp/constants.dart';
 import 'OTP_auth.dart';
 import 'package:device_info/device_info.dart';
 
@@ -17,9 +19,9 @@ class _CertificateState extends State<DigitalCertificate> {
   DeviceInfoPlugin deviceInfo =
       DeviceInfoPlugin(); // instantiate device info plugin
   AndroidDeviceInfo androidDeviceInfo;
+  IosDeviceInfo iosDeviceInfo;
+  String model, id;
 
-  String id, model, androidid;
-  bool isphysicaldevice;
   @override
   void initState() {
     super.initState();
@@ -27,13 +29,16 @@ class _CertificateState extends State<DigitalCertificate> {
   }
 
   void getDeviceinfo() async {
-    androidDeviceInfo = await deviceInfo
-        .androidInfo; // instantiate Android Device Infoformation
+    androidDeviceInfo = await deviceInfo.androidInfo;
+    // iosDeviceInfo = await deviceInfo.iosInfo;
     setState(() {
-      id = androidDeviceInfo.id;
-      model = androidDeviceInfo.model;
-      isphysicaldevice = androidDeviceInfo.isPhysicalDevice;
-      androidid = androidDeviceInfo.androidId;
+      if (Platform.isAndroid) {
+        model = androidDeviceInfo.model;
+        id = androidDeviceInfo.androidId;
+      } else if (Platform.isIOS) {
+        //     model = iosDeviceInfo.name;
+        //     id = iosDeviceInfo.identifierForVendor;
+      }
     });
   }
 
@@ -49,86 +54,24 @@ class _CertificateState extends State<DigitalCertificate> {
             child: Column(
               children: [
                 //Appbar
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Column(
-                      children: [
-                        IconButton(
-                          icon: new Icon(Icons.arrow_back_ios_rounded),
-                          color: Color.fromRGBO(9, 30, 66, 1),
-                          highlightColor: Colors.transparent,
-                          onPressed: () {
-                            Navigator.pop(context);
-                          },
-                        )
-                      ],
-                    ),
-                    Column(
-                      children: [
-                        Container(
-                            margin: const EdgeInsets.only(
-                                top: 16, bottom: 16, right: 16),
-                            padding: const EdgeInsets.only(
-                                top: 2, right: 2, bottom: 2),
-                            decoration: BoxDecoration(
-                              border: Border.all(
-                                  width: 1,
-                                  color: Color.fromRGBO(17, 57, 125, 1)),
-                              borderRadius:
-                                  BorderRadius.all(Radius.circular(10.0)),
-                            ),
-                            child: Column(children: <Widget>[
-                              new LinearPercentIndicator(
-                                backgroundColor: Colors.transparent,
-                                width: 80.0,
-                                lineHeight: 10.0,
-                                percent: 0.5,
-                                progressColor: Color.fromRGBO(17, 57, 125, 1),
-                              ),
-                            ]))
-                      ],
-                    )
-                  ],
-                ),
+                appBar(context, 0.5),
                 SizedBox(height: 38),
 
                 //Screen Title
                 Flexible(
                     child: Container(
-                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  padding: containerPadding,
                   child: SingleChildScrollView(
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        Text(
-                          'Xác nhận chứng thư',
-                          style: TextStyle(
-                              fontSize: 24,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Gilroy',
-                              color: Color.fromRGBO(9, 30, 66, 1)),
-                        ),
-                        SizedBox(height: 16),
-                        Text(
-                          'Vui lòng xác thực serial để kết nối và kích hoạt thiết bị với ứng dụng',
-                          style: TextStyle(
-                              fontSize: 16,
-                              fontFamily: 'Gilroy',
-                              height: 1.4,
-                              color: Color.fromRGBO(80, 95, 121, 1)),
-                        ),
-                        SizedBox(height: 24),
+                        headingTitle(
+                            title: 'Xác nhận chứng thư',
+                            subtitle:
+                                'Vui lòng xác thực serial để kết nối và kích hoạt thiết bị với ứng dụng'),
 
                         //Infomation of digital certificate
-                        Text(
-                          'Thiết bị'.toUpperCase(),
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Gilroy',
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromRGBO(9, 30, 66, 1)),
-                        ),
+                        titleCard(titleOfCard: 'Thiết bị'),
                         SizedBox(height: 2),
                         Container(
                           width: double.infinity,
@@ -139,51 +82,14 @@ class _CertificateState extends State<DigitalCertificate> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      top: 14, left: 14, bottom: 4),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        '$model',
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: 'Gilroy',
-                                            color:
-                                                Color.fromRGBO(9, 30, 66, 1)),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  padding:
-                                      EdgeInsets.only(left: 14, bottom: 14),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        '$androidid'.toUpperCase(),
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: 'Gilroy',
-                                            color: Color.fromRGBO(
-                                                107, 119, 140, 1)),
-                                      ),
-                                    ],
-                                  ),
-                                )
+                                firstContent(firstCard: '$model'),
+                                secondContent(secondContent: '$id')
                               ],
                             ),
                           ),
                         ),
                         SizedBox(height: 28),
-                        Text(
-                          'Thông tin công ty'.toUpperCase(),
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Gilroy',
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromRGBO(9, 30, 66, 1)),
-                        ),
+                        titleCard(titleOfCard: 'Thông tin công ty'),
                         SizedBox(height: 2),
                         Container(
                           width: double.infinity,
@@ -194,51 +100,16 @@ class _CertificateState extends State<DigitalCertificate> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      top: 14, left: 14, bottom: 4),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        'Công Ty Thương Mại Cổ Phần Công Nghệ Thẻ Nacencomm',
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: 'Gilroy',
-                                            color:
-                                                Color.fromRGBO(9, 30, 66, 1)),
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  padding:
-                                      EdgeInsets.only(left: 14, bottom: 14),
-                                  child: Column(
-                                    children: [
-                                      Text(
-                                        '0103930279',
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: 'Gilroy',
-                                            color: Color.fromRGBO(
-                                                107, 119, 140, 1)),
-                                      ),
-                                    ],
-                                  ),
-                                )
+                                firstContent(
+                                    firstCard:
+                                        'Công Ty Thương Mại Cổ Phần Công Nghệ Thẻ Nacencomm'),
+                                secondContent(secondContent: '0103930279')
                               ],
                             ),
                           ),
                         ),
                         SizedBox(height: 28),
-                        Text(
-                          'Số serial'.toUpperCase(),
-                          style: TextStyle(
-                              fontSize: 14,
-                              fontFamily: 'Gilroy',
-                              fontWeight: FontWeight.w600,
-                              color: Color.fromRGBO(9, 30, 66, 1)),
-                        ),
+                        titleCard(titleOfCard: 'Số serial'),
                         SizedBox(height: 2),
                         Container(
                           width: double.infinity,
@@ -260,7 +131,7 @@ class _CertificateState extends State<DigitalCertificate> {
                                         'Chọn số serial kích hoạt',
                                         style: TextStyle(
                                             fontSize: 14,
-                                            fontFamily: 'Gilroy',
+                                            fontFamily: kPrimaryFontFamily,
                                             color:
                                                 Color.fromRGBO(9, 30, 66, 1)),
                                       ),
@@ -271,7 +142,7 @@ class _CertificateState extends State<DigitalCertificate> {
                                               color: Color.fromRGBO(
                                                   37, 110, 189, 1),
                                               fontSize: 14,
-                                              fontFamily: 'Gilroy'),
+                                              fontFamily: kPrimaryFontFamily),
                                         ),
                                         leading: Radio(
                                           value: SingingCharacter
@@ -284,19 +155,19 @@ class _CertificateState extends State<DigitalCertificate> {
                                           },
                                         ),
                                       ),
-                                      _listOfCertificate(
+                                      listOfCertificate(
                                           certificateID: '000-112',
                                           stateOfCertificate: 'Đã kích hoạt'),
-                                      _listOfCertificate(
+                                      listOfCertificate(
                                           certificateID: '000-183',
                                           stateOfCertificate: 'Đã kích hoạt'),
-                                      _listOfCertificate(
+                                      listOfCertificate(
                                           certificateID: '000-165',
                                           stateOfCertificate: 'Đã kích hoạt'),
-                                      _listOfCertificate(
+                                      listOfCertificate(
                                           certificateID: '000-137',
                                           stateOfCertificate: 'Đã kích hoạt'),
-                                      _listOfCertificate(
+                                      listOfCertificate(
                                           certificateID: '000-115',
                                           stateOfCertificate: 'Đã kích hoạt'),
                                     ],
@@ -336,8 +207,8 @@ class _CertificateState extends State<DigitalCertificate> {
               ),
             ),
             height: 44,
-            textColor: Colors.white,
-            color: Color.fromRGBO(26, 65, 171, 1),
+            textColor: textButtonColor,
+            color: buttonColor,
             shape:
                 RoundedRectangleBorder(borderRadius: BorderRadius.circular(6)),
           ),
@@ -346,43 +217,4 @@ class _CertificateState extends State<DigitalCertificate> {
       debugShowCheckedModeBanner: false,
     );
   }
-}
-
-Widget _listOfCertificate({String certificateID, String stateOfCertificate}) {
-  return Row(
-    crossAxisAlignment: CrossAxisAlignment.start,
-    children: [
-      Padding(
-        padding: EdgeInsets.only(left: 16, bottom: 16),
-        child: Column(
-          children: [
-            Text(
-              certificateID,
-              style: TextStyle(
-                  color: Color.fromRGBO(107, 119, 140, 1),
-                  fontFamily: 'Gilroy',
-                  fontSize: 14),
-            )
-          ],
-        ),
-      ),
-      Expanded(
-          child: Row(
-        mainAxisAlignment: MainAxisAlignment.end,
-        children: [
-          Padding(
-            padding: EdgeInsets.only(right: 16, bottom: 16),
-            child: Text(
-              stateOfCertificate,
-              style: TextStyle(
-                  color: Color.fromRGBO(183, 192, 204, 1),
-                  fontFamily: 'Gilroy',
-                  fontSize: 14,
-                  fontStyle: FontStyle.italic),
-            ),
-          )
-        ],
-      ))
-    ],
-  );
 }
