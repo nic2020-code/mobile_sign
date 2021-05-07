@@ -128,6 +128,7 @@ class _FormConnectState extends State<ConnectDevice>
                                 title: 'Kết nối thiết bị',
                                 subtitle:
                                     'Chúng tôi đã gửi mã kết nối đến địa chỉ Email của bạn. Vui lòng kiểm tra và kết nối'),
+
                             TextField(
                               inputFormatters: [
                                 FilteringTextInputFormatter.allow(

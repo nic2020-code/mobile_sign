@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="40" height="40" viewBox="0 0 40 40">
+  <defs>
+    <clipPath id="clip-path">
+      <circle id="Ellipse_132" data-name="Ellipse 132" cx="20" cy="20" r="20" transform="translate(11891 6727)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="user_dashboard" transform="translate(-11891 -6727)">
+    <circle id="Ellipse_131" data-name="Ellipse 131" cx="20" cy="20" r="20" transform="translate(11891 6727)" fill="#fff"/>
+    <g id="Mask_Group_405" data-name="Mask Group 405" clip-path="url(#clip-path)">
+      <g id="black-male-user-symbol" transform="translate(11897.223 6736.336)">
+        <path id="Path_913" data-name="Path 913" d="M30.661,25.595l-.109.131s-6.428,5.145-11.528,5.145-11.85-.829-15.448-5.145l-.108-.131.026-.168a13.9,13.9,0,0,1,6.666-10.251l.256-.148.2.214a8.887,8.887,0,0,0,12.89,0l.2-.214.256.148a13.9,13.9,0,0,1,6.666,10.251Zm-13.6-9.4a8.1,8.1,0,1,0-8.095-8.1A8.1,8.1,0,0,0,17.064,16.19Z" transform="translate(-3.467 0)" fill="#11397d"/>
+      </g>
+    </g>
+  </g>
+</svg>

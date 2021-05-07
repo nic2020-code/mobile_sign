@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <g id="ca2_einvoice_icon" transform="translate(-101.931 -1984.93)">
+    <g id="Group_1136" data-name="Group 1136" transform="translate(101.847 1984.848)">
+      <rect id="Rectangle_697" data-name="Rectangle 697" width="32" height="32" rx="4" transform="translate(0.083 0.083)" fill="#256ebd"/>
+      <g id="Group_1134" data-name="Group 1134" transform="translate(5.974 6.051)">
+        <path id="Path_2008" data-name="Path 2008" d="M5.319,15.706V.845A.833.833,0,0,0,3.9.256L.605,3.547A2.071,2.071,0,0,0,0,5.009V21.06Z" transform="translate(0 -0.012)" fill="#fff"/>
+        <path id="Path_2009" data-name="Path 2009" d="M51.633,17.287V2.944a1.048,1.048,0,0,0-1.789-.74L46.921,5.127a2.073,2.073,0,0,0-.607,1.464V22.64Z" transform="translate(-38.887 -1.595)" fill="#fff"/>
+        <path id="Path_2010" data-name="Path 2010" d="M97.947,16.727V2.2a.971.971,0,0,0-1.657-.687L93.256,4.547a2.143,2.143,0,0,0-.628,1.515V22.083Z" transform="translate(-77.773 -1.034)" fill="#fff"/>
+      </g>
+    </g>
+  </g>
+</svg>

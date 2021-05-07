@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:myApp/dashboard.dart';
 
 class SignInConnected extends StatefulWidget {
   @override
@@ -25,8 +26,8 @@ class _FormConnectedState extends State<SignInConnected>
     setState(() {
       numberFieldCtrl.text.isEmpty || numberFieldCtrl.text.length < 6
           ? _pinValidate = true
-          : _scaffoldKey.currentState
-              .showSnackBar(SnackBar(content: Text('Đăng nhập thành công!')));
+          : Navigator.push(
+              context, MaterialPageRoute(builder: (context) => Dashboard()));
     });
   }
 
@@ -216,6 +217,9 @@ class _FormConnectedState extends State<SignInConnected>
                           ),
                           onTap: () => {})
                     ],
+                  ),
+                  SizedBox(
+                    height: 24,
                   ),
                 ],
               ),

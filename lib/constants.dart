@@ -148,7 +148,7 @@ Widget secondContent({String secondContent}) {
     child: Column(
       children: [
         Text(
-          secondContent,
+          secondContent.toUpperCase(),
           style: TextStyle(
               fontSize: 14,
               fontFamily: 'Gilroy',

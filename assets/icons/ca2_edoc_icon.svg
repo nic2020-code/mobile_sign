@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="32" height="32" viewBox="0 0 32 32">
+  <defs>
+    <clipPath id="clip-path">
+      <rect id="Rectangle_793" data-name="Rectangle 793" width="32" height="32" rx="4" transform="translate(-0.015 -0.015)" fill="#fff"/>
+    </clipPath>
+  </defs>
+  <g id="ca2_edoc_icon" transform="translate(3359.477 -1708.523)">
+    <g id="Rectangle_697" data-name="Rectangle 697" transform="translate(-3359.477 1708.523)" fill="#fff" stroke="#6597cd" stroke-width="1">
+      <rect width="32" height="32" rx="4" stroke="none"/>
+      <rect x="0.5" y="0.5" width="31" height="31" rx="3.5" fill="none"/>
+    </g>
+    <g id="Mask_Group_427" data-name="Mask Group 427" transform="translate(-3359.462 1708.538)" clip-path="url(#clip-path)">
+      <g id="Group_1347" data-name="Group 1347" transform="translate(-16.834 -0.255)">
+        <path id="Path_1000" data-name="Path 1000" d="M1340.741,1325.006v8.656h-41.564v-32.224h32.855Z" transform="translate(-1299.104 -1301.438)" fill="#11397d"/>
+        <path id="Path_1001" data-name="Path 1001" d="M1334.821,1333.74v0h-36.035v-7.054h.072v-25.122h26.971l8.9,24.508.007.614Z" transform="translate(-1298.786 -1301.543)" fill="#d8def2" opacity="0.14"/>
+        <path id="Path_1002" data-name="Path 1002" d="M1328.444,1333.744h-29.658v-6.535h.072v-25.641h20.821l8.684,24.838.009.8Z" transform="translate(-1298.786 -1301.543)" fill="#8dcafc" opacity="0.58"/>
+      </g>
+    </g>
+  </g>
+</svg>
