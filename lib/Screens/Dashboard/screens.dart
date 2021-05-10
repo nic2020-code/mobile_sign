@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:myApp/app_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:myApp/Screens/Dashboard/request_data.dart';
+import 'package:myApp/Screens/Dashboard/screens/request_detail.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -24,7 +25,13 @@ class HomeState extends State<HomeScreen> {
               borderRadius: BorderRadius.circular(8)),
           elevation: 2,
           child: InkWell(
-            onTap: () {},
+            onTap: () {
+              Navigator.of(context).push(
+                MaterialPageRoute(
+                  builder: (context) => RequestDetail(),
+                ),
+              );
+            },
             child: Padding(
               padding: EdgeInsets.all(16),
               child: Row(
@@ -161,7 +168,7 @@ class HomeState extends State<HomeScreen> {
           elevation: 0,
         ),
           body: Container(
-                padding: EdgeInsets.only(top: 16, left: 16, right: 16),
+                padding: EdgeInsets.only(top: 16, left: 12, right: 12),
                 child: ListView.builder(
                     itemCount: requestData.length,
                     itemBuilder: (BuildContext context, int index) => buildRequestCard(context, index)

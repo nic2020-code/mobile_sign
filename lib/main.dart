@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myApp/constants.dart';
-// import 'Screens/Welcome/introSlide.dart';
-import 'package:myApp/Screens/Dashboard/app.dart';
+import 'Screens/Welcome/introSlide.dart';
+// import 'package:myApp/Screens/Dashboard/app.dart';
 
 void main() => runApp(new MyApp());
 
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
         primaryColor: kPrimaryColor,
         scaffoldBackgroundColor: Colors.white,
       ),
-      home: App(),
+      home: IntroScreen(),
       debugShowCheckedModeBanner: false,
     );
   }

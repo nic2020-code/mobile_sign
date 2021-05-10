@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:myApp/dashboard.dart';
+import 'package:myApp/Screens/Dashboard/app.dart';
 
 class SignInConnected extends StatefulWidget {
   @override
@@ -27,7 +27,7 @@ class _FormConnectedState extends State<SignInConnected>
       numberFieldCtrl.text.isEmpty || numberFieldCtrl.text.length < 6
           ? _pinValidate = true
           : Navigator.push(
-              context, MaterialPageRoute(builder: (context) => Dashboard()));
+              context, MaterialPageRoute(builder: (context) => App()));
     });
   }
 
