@@ -77,9 +77,9 @@ class _FormOTPState extends State<OTPAuthentication>
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             headingTitle(
-                                title: 'Xác thực OTP',
+                                title: 'Xác thực thiết bị',
                                 subtitle:
-                                    'Vui lòng nhập mã OTP để tiếp tục thao tác'),
+                                    'Vui lòng nhập mã xác thực thiết bị để tiếp tục'),
                             TextField(
                                 style:
                                     TextStyle(fontSize: 32, letterSpacing: 16),
@@ -137,7 +137,7 @@ class _FormOTPState extends State<OTPAuthentication>
                               children: [
                                 InkWell(
                                     child: Text(
-                                      'Gửi lại mã OTP',
+                                      'Gửi lại mã',
                                       style: TextStyle(
                                           color: Color.fromRGBO(52, 69, 99, 1),
                                           fontFamily: kPrimaryFontFamily,

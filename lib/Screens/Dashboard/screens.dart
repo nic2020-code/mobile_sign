@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:myApp/app_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:myApp/Screens/Dashboard/request_data.dart';
-import 'package:myApp/Screens/Dashboard/screens/request_detail.dart';
+import 'package:myApp/Screens/Dashboard/components/card_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -12,168 +10,244 @@ class HomeScreen extends StatefulWidget {
 }
 
 class HomeState extends State<HomeScreen> {
-
-  final List<RequestData> requestData = [
-    RequestData(1, 'assets/images/edoc_request.png', 'Yêu cầu ký văn bản từ Nguyễn Văn Khanh', 'VMI-NACENCOMM 13.7.20.doc', '5 giờ trước'),
-    RequestData(2, 'assets/images/einvoice_request.png', 'Yêu cầu đăng nhập từ Ca2-Einvoice', 'Device PC-DE5Z 009', '2 giờ trước')
-  ];
-
-  Widget buildRequestCard(BuildContext context, int index) {
-    return Container(
-      child: Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8)),
-          elevation: 2,
-          child: InkWell(
-            onTap: () {
-              Navigator.of(context).push(
-                MaterialPageRoute(
-                  builder: (context) => RequestDetail(),
-                ),
-              );
-            },
-            child: Padding(
-              padding: EdgeInsets.all(16),
-              child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-
-                    Container(
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage(
-                              requestData[index].image),
-                        ),
-                      ),
-                      width: 30,
-                      height: 30,
-                    ),
-
-                    Flexible(
-                        child: Padding(
-                          padding: EdgeInsets.symmetric(horizontal: 16),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                requestData[index].requestName,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    fontWeight: FontWeight.w500,
-                                    color: Color.fromRGBO(9, 30, 66, 1)
-                                ),
-                              ),
-                              SizedBox(height: 4,),
-                              Text(
-                                requestData[index].fileName,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 14,
-                                    color: Color.fromRGBO(107, 119, 140, 1)
-                                ),
-                              ),
-                              SizedBox(height: 12,),
-                              Text(
-                                requestData[index].requestDate,
-                                overflow: TextOverflow.ellipsis,
-                                style: TextStyle(
-                                    fontSize: 12,
-                                    color: Color.fromRGBO(183, 192, 204, 1)
-                                ),
-                              )
-                            ],
-                          ),)
-                    )
-                  ]),
-            ),))
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Home',
-      home: Scaffold(
-        extendBodyBehindAppBar: true,
-        appBar: AppBar(
-          toolbarHeight: 130,
-          title: FlatButton(
-            padding: EdgeInsets.zero,
-            onPressed: () {},
-            child: Container(
-              child: Row(
-                  children: [
-                    Container(
-                      width: 40,
-                      height: 40,
-                      decoration: BoxDecoration(
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: AssetImage(
-                              'assets/images/user_dashboard.png'),
-                        ),
-                      ),
-                    ),
-                    Container(
-                      margin: EdgeInsets.only(left: 16),
+    return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+        toolbarHeight: 130,
+        title: FlatButton(
+          padding: EdgeInsets.zero,
+          onPressed: () {
+            showDialog(
+              context: context,
+              barrierDismissible: false,
+              builder: (BuildContext context) {
+                return Dialog(
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(4.0),
+                  ),
+                  child: Container(
+                      width: 366.0,
                       child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
-                          Text(
-                            'Nguyễn Văn Khanh',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Gilroy',
-                                fontSize: 16.0,
-                                fontWeight: FontWeight.w600),
-                          ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            'Cá nhân',
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontFamily: 'Gilroy',
-                                fontSize: 14.0),
-                          ),
+                          Container(
+                              decoration: BoxDecoration(
+                                  border: Border(
+                                      bottom: BorderSide(
+                                          color:
+                                              Color.fromRGBO(208, 215, 226, 1),
+                                          width: 1.0))),
+                              padding: EdgeInsets.all(16.0),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Thông tin chi tiết',
+                                    style: TextStyle(
+                                        fontSize: 16.0,
+                                        color: Color.fromRGBO(9, 30, 66, 1)),
+                                  ),
+                                  Container(
+                                    width: 20.0,
+                                    height: 20.0,
+                                    child: IconButton(
+                                        padding: EdgeInsets.zero,
+                                        icon: Icon(
+                                          Icons.close_outlined,
+                                          color:
+                                              Color.fromRGBO(107, 119, 140, 1),
+                                        ),
+                                        onPressed: () {
+                                          Navigator.pop(context);
+                                        }),
+                                  )
+                                ],
+                              )),
+                          Container(
+                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                            child: Column(
+                              children: [
+                                Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      border: Border(
+                                          bottom: BorderSide(
+                                              color: Color.fromRGBO(
+                                                  208, 215, 226, 1),
+                                              width: 1.0))),
+                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Cá nhân',
+                                        style: TextStyle(
+                                            fontSize: 14.0,
+                                            color: Color.fromRGBO(
+                                                107, 119, 140, 1)),
+                                      ),
+                                      SizedBox(
+                                        height: 12.0,
+                                      ),
+                                      Text(
+                                        'Nguyễn văn khanh'.toUpperCase(),
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      border: Border(
+                                          bottom: BorderSide(
+                                              color: Color.fromRGBO(
+                                                  208, 215, 226, 1),
+                                              width: 1.0))),
+                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Mã số thuế',
+                                        style: TextStyle(
+                                            fontSize: 14.0,
+                                            color: Color.fromRGBO(
+                                                107, 119, 140, 1)),
+                                      ),
+                                      SizedBox(
+                                        height: 12.0,
+                                      ),
+                                      Text(
+                                        '0103930279',
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                ),
+                                Container(
+                                  width: double.infinity,
+                                  decoration: BoxDecoration(
+                                      border: Border(
+                                          bottom: BorderSide(
+                                              color: Color.fromRGBO(
+                                                  208, 215, 226, 1),
+                                              width: 1.0))),
+                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                  child: Column(
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        'Thời hạn hoạt động',
+                                        style: TextStyle(
+                                            fontSize: 14.0,
+                                            color: Color.fromRGBO(
+                                                107, 119, 140, 1)),
+                                      ),
+                                      SizedBox(
+                                        height: 12.0,
+                                      ),
+                                      Text(
+                                        '12/01/2020 - 12/01/2022',
+                                        style: TextStyle(
+                                            fontSize: 16.0,
+                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                            fontWeight: FontWeight.w600),
+                                      )
+                                    ],
+                                  ),
+                                )
+                              ],
+                            ),
+                          )
                         ],
-                      ),
-                    )
-                  ]),
-            ),
+                      )),
+                );
+              },
+            );
+          },
+          child: Container(
+            child: Row(children: [
+              Container(
+                width: 40,
+                height: 40,
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    fit: BoxFit.fill,
+                    image: AssetImage('assets/images/user_dashboard.png'),
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.only(left: 16),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      'Nguyễn Văn Khanh',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w500),
+                    ),
+                    SizedBox(
+                      height: 4,
+                    ),
+                    Text(
+                      'Cá nhân',
+                      style: TextStyle(
+                          fontWeight: FontWeight.normal,
+                          color: Colors.white,
+                          fontSize: 14.0),
+                    ),
+                  ],
+                ),
+              )
+            ]),
           ),
-          actions: [
-            IconButton(
-                iconSize: 20,
-                icon: Icon(MyFlutterApp.messenger_dashboard,
-                    color: Colors.white),
-                onPressed: () {
-                  launch('https://www.facebook.com/nacencommca2');
-                }),
-            IconButton(
-                iconSize: 20,
-                icon: Icon(MyFlutterApp.call_support,
-                    color: Colors.white),
-                onPressed: () {
-                  launch('tel://1900545407');
-                }),
-          ],
-          backgroundColor: Color.fromRGBO(17, 57, 125, 1),
-          elevation: 0,
         ),
-          body: Container(
-                padding: EdgeInsets.only(top: 16, left: 12, right: 12),
-                child: ListView.builder(
-                    itemCount: requestData.length,
-                    itemBuilder: (BuildContext context, int index) => buildRequestCard(context, index)
-                )
-            ),
+        actions: [
+          IconButton(
+              iconSize: 20,
+              icon: Icon(MyFlutterApp.messenger_dashboard, color: Colors.white),
+              onPressed: () {
+                launch('https://www.facebook.com/nacencommca2');
+              }),
+          IconButton(
+              iconSize: 20,
+              icon: Icon(MyFlutterApp.call_support, color: Colors.white),
+              onPressed: () {
+                launch('tel://1900545407');
+              }),
+        ],
+        backgroundColor: Color.fromRGBO(17, 57, 125, 1),
+        elevation: 0,
+      ),
+      body: Container(
+        padding: EdgeInsets.only(top: 16, left: 12, right: 12),
+        child: Column(
+          children: <Widget>[
+            Expanded(
+              child: ListView.builder(
+                  itemCount: requestData.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      buildRequestCard(context, index)),
+            )
+          ],
+        ),
       ),
     );
   }
@@ -185,16 +259,39 @@ class HistoryScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FlatButton(
-        child: Text("Push other Settings"),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => NewPage(),
-            ),
-          );
-        },
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(17, 57, 125, 1),
+        title: Text(
+          'Hoạt động ký',
+          style: TextStyle(
+              // fontFamily: 'Gilroy',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        ),
+        actions: [
+          IconButton(
+              iconSize: 20,
+              icon: Icon(Icons.search, color: Colors.white),
+              onPressed: () {}),
+          FlatButton.icon(
+              label: Text(
+                'Lọc',
+                style: TextStyle(color: Colors.white),
+              ),
+              icon: Icon(
+                Icons.sort_outlined,
+                color: Colors.white,
+              ),
+              onPressed: () {}),
+        ],
+      ),
+      body: Container(
+        padding: EdgeInsets.only(top: 24.0, left: 12.0, right: 12.0),
+        child: ListView.builder(
+            itemCount: requestData.length,
+            itemBuilder: (BuildContext context, int index) =>
+                buildHistoryCard(context, index)),
       ),
     );
   }
@@ -208,7 +305,7 @@ class QRScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: FlatButton(
-        child: Text("Push other Settings"),
+        child: Text("QR Code"),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -229,7 +326,7 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: FlatButton(
-        child: Text("Push other Settings"),
+        child: Text("Notification"),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(
@@ -250,7 +347,7 @@ class AccountScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       child: FlatButton(
-        child: Text("Push other Settings"),
+        child: Text("Settings"),
         onPressed: () {
           Navigator.of(context).push(
             MaterialPageRoute(

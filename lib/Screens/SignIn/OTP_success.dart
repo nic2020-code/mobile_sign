@@ -75,28 +75,6 @@ class OTPSuccess extends StatelessWidget {
                       SizedBox(
                         height: 16,
                       ),
-                      SizedBox(
-                        width: double.infinity,
-                        height: 44,
-                        child: new FlatButton(
-                          onPressed: () {},
-                          child: Text(
-                            'Xem chứng thư số'.toUpperCase(),
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w400,
-                                fontFamily: kPrimaryFontFamily),
-                          ),
-                          textColor: Color.fromRGBO(26, 65, 171, 1),
-                          color: Colors.white,
-                          shape: RoundedRectangleBorder(
-                              side: BorderSide(
-                                  color: Color.fromRGBO(26, 65, 171, 0.3),
-                                  width: 1,
-                                  style: BorderStyle.solid),
-                              borderRadius: BorderRadius.circular(6)),
-                        ),
-                      )
                     ],
                   ),
                 ),

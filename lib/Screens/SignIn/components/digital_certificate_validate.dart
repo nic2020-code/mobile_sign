@@ -66,9 +66,9 @@ class _CertificateState extends State<DigitalCertificate> {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         headingTitle(
-                            title: 'Xác nhận chứng thư',
+                            title: 'Xác nhận thông tin',
                             subtitle:
-                                'Vui lòng xác thực serial để kết nối và kích hoạt thiết bị với ứng dụng'),
+                                'Vui lòng kiểm tra thông tin thiết bị và thông tin công ty.'),
 
                         //Infomation of digital certificate
                         titleCard(titleOfCard: 'Thiết bị'),
@@ -104,75 +104,6 @@ class _CertificateState extends State<DigitalCertificate> {
                                     firstCard:
                                         'Công Ty Thương Mại Cổ Phần Công Nghệ Thẻ Nacencomm'),
                                 secondContent(secondContent: '0103930279')
-                              ],
-                            ),
-                          ),
-                        ),
-                        SizedBox(height: 28),
-                        titleCard(titleOfCard: 'Số serial'),
-                        SizedBox(height: 2),
-                        Container(
-                          width: double.infinity,
-                          child: Card(
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(8)),
-                            elevation: 2,
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Container(
-                                  padding: EdgeInsets.only(
-                                      top: 16, left: 16, bottom: 4),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Chọn số serial kích hoạt',
-                                        style: TextStyle(
-                                            fontSize: 14,
-                                            fontFamily: kPrimaryFontFamily,
-                                            color:
-                                                Color.fromRGBO(9, 30, 66, 1)),
-                                      ),
-                                      ListTile(
-                                        title: Text(
-                                          '000-928',
-                                          style: TextStyle(
-                                              color: Color.fromRGBO(
-                                                  37, 110, 189, 1),
-                                              fontSize: 14,
-                                              fontFamily: kPrimaryFontFamily),
-                                        ),
-                                        leading: Radio(
-                                          value: SingingCharacter
-                                              .digitalcertificate,
-                                          groupValue: _character,
-                                          onChanged: (SingingCharacter value) {
-                                            setState(() {
-                                              _character = value;
-                                            });
-                                          },
-                                        ),
-                                      ),
-                                      listOfCertificate(
-                                          certificateID: '000-112',
-                                          stateOfCertificate: 'Đã kích hoạt'),
-                                      listOfCertificate(
-                                          certificateID: '000-183',
-                                          stateOfCertificate: 'Đã kích hoạt'),
-                                      listOfCertificate(
-                                          certificateID: '000-165',
-                                          stateOfCertificate: 'Đã kích hoạt'),
-                                      listOfCertificate(
-                                          certificateID: '000-137',
-                                          stateOfCertificate: 'Đã kích hoạt'),
-                                      listOfCertificate(
-                                          certificateID: '000-115',
-                                          stateOfCertificate: 'Đã kích hoạt'),
-                                    ],
-                                  ),
-                                ),
                               ],
                             ),
                           ),
