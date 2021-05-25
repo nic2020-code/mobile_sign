@@ -10,10 +10,22 @@ class RequestDetail extends StatefulWidget {
 
 class RequestState extends State<RequestDetail> {
 
-  TextEditingController numberFieldCtrl = TextEditingController();
-  bool _pinValidate = false;
-  String _numberValidate;
-  bool countDownComplete = false;
+  final numberFieldCtrl = TextEditingController();
+  bool _pinValidate = false; //true > hiện error-text của textfield
+
+  @override
+  void initState() {
+    super.initState();
+    numberFieldCtrl.addListener(_onChange);
+  }
+
+  @override
+  void dispose() {
+    numberFieldCtrl.dispose();
+    super.dispose();
+  }
+
+  void _onChange() {} //lắng nghe sự thay đổi của textfield
 
   void _onButtonShowModalSheet() {
     showModalBottomSheet(
@@ -79,6 +91,7 @@ class RequestState extends State<RequestDetail> {
                   padding: EdgeInsets.symmetric(horizontal: 60.0),
                   height: 64,
                   child: TextField(
+                    controller: numberFieldCtrl,
                     cursorColor: Colors.white,
                     style: TextStyle(fontSize: 32, letterSpacing: 12),
                     textAlign: TextAlign.center,
@@ -107,16 +120,41 @@ class RequestState extends State<RequestDetail> {
                           borderRadius: BorderRadius.all(Radius.circular(16.0)),
                           borderSide: BorderSide(color: Color.fromRGBO(208, 215, 226, 1))),
                     ),
-                    controller: numberFieldCtrl,
-                    // focusNode: focusNode,
-                    onChanged: (text) {
-                      setState(() {
-                        _numberValidate = text;
-                        _pinValidate = false;
-                      });
-                    },
                   ),
                 ),
+                Visibility(
+                    maintainSize: true,
+                    maintainAnimation: true,
+                    maintainState: true,
+                    visible: _pinValidate,
+                    child: Center(
+                        child: Padding(
+                          padding: EdgeInsets.only(top: 24.0),
+                          child: Text(
+                              '\*Mã PIN không đúng. Vui lòng kiểm tra lại',
+                              textAlign: TextAlign.center,
+                              style:
+                              TextStyle(color: Colors.red, fontSize: 12)),
+                        )
+                    )
+                ),
+                Expanded(
+                  child: Align(
+                    alignment: FractionalOffset.bottomCenter,
+                    child: Padding(
+                        padding: EdgeInsets.only(bottom: 20.0),
+                        child: InkWell(
+                            child: Text(
+                              'Quên mã PIN?',
+                              style: TextStyle(
+                                fontSize: 14,
+                                  color: Color.fromRGBO(37, 110, 189, 1),
+                                  fontWeight: FontWeight.w500),
+                            ),
+                            onTap: () => {})
+                    ),
+                  ),
+                )
               ],
             ),
           );

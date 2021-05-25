@@ -22,6 +22,7 @@ final List<RequestData> requestData = [
 
 Widget buildRequestCard(BuildContext context, int index) {
   return Container(
+    padding: EdgeInsets.symmetric(horizontal: 12.0),
       child: Card(
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
           elevation: 2,
@@ -51,40 +52,40 @@ Widget buildRequestCard(BuildContext context, int index) {
                     ),
                     Flexible(
                         child: Padding(
-                      padding: EdgeInsets.symmetric(horizontal: 16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Text(
-                            requestData[index].requestName,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontWeight: FontWeight.w500,
-                                color: Color.fromRGBO(9, 30, 66, 1)),
+                          padding: EdgeInsets.symmetric(horizontal: 16),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                requestData[index].requestName,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromRGBO(9, 30, 66, 1)),
+                              ),
+                              SizedBox(
+                                height: 4,
+                              ),
+                              Text(
+                                requestData[index].fileName,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Color.fromRGBO(107, 119, 140, 1)),
+                              ),
+                              SizedBox(
+                                height: 12,
+                              ),
+                              Text(
+                                requestData[index].requestDate,
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Color.fromRGBO(183, 192, 204, 1)),
+                              )
+                            ],
                           ),
-                          SizedBox(
-                            height: 4,
-                          ),
-                          Text(
-                            requestData[index].fileName,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Color.fromRGBO(107, 119, 140, 1)),
-                          ),
-                          SizedBox(
-                            height: 12,
-                          ),
-                          Text(
-                            requestData[index].requestDate,
-                            overflow: TextOverflow.ellipsis,
-                            style: TextStyle(
-                                fontSize: 12,
-                                color: Color.fromRGBO(183, 192, 204, 1)),
-                          )
-                        ],
-                      ),
                     ))
                   ]),
             ),

@@ -2,244 +2,279 @@ import 'package:flutter/material.dart';
 import 'package:myApp/app_icons.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:myApp/Screens/Dashboard/components/card_widget.dart';
+import 'package:myApp/Screens/SettingAccount/detail_screen.dart';
+import 'package:myApp/Screens/SettingAccount/components/list_items_widget.dart';
+import 'package:myApp/Screens/Dashboard/components/notification_widget.dart';
 
-class HomeScreen extends StatefulWidget {
-  @override
-  State<StatefulWidget> createState() => HomeState();
-  const HomeScreen({Key key}) : super(key: key);
-}
+class HomeScreen extends StatelessWidget {
+  final Function openHome;
+  const HomeScreen({Key key, this.openHome}) : super(key: key);
 
-class HomeState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        toolbarHeight: 130,
-        title: FlatButton(
-          padding: EdgeInsets.zero,
-          onPressed: () {
-            showDialog(
-              context: context,
-              barrierDismissible: false,
-              builder: (BuildContext context) {
-                return Dialog(
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(4.0),
-                  ),
-                  child: Container(
-                      width: 366.0,
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Container(
-                              decoration: BoxDecoration(
-                                  border: Border(
-                                      bottom: BorderSide(
-                                          color:
-                                              Color.fromRGBO(208, 215, 226, 1),
-                                          width: 1.0))),
-                              padding: EdgeInsets.all(16.0),
-                              child: Row(
-                                mainAxisAlignment:
-                                    MainAxisAlignment.spaceBetween,
-                                crossAxisAlignment: CrossAxisAlignment.center,
-                                children: [
-                                  Text(
-                                    'Thông tin chi tiết',
-                                    style: TextStyle(
-                                        fontSize: 16.0,
-                                        color: Color.fromRGBO(9, 30, 66, 1)),
-                                  ),
-                                  Container(
-                                    width: 20.0,
-                                    height: 20.0,
-                                    child: IconButton(
-                                        padding: EdgeInsets.zero,
-                                        icon: Icon(
-                                          Icons.close_outlined,
-                                          color:
-                                              Color.fromRGBO(107, 119, 140, 1),
-                                        ),
-                                        onPressed: () {
-                                          Navigator.pop(context);
-                                        }),
-                                  )
-                                ],
-                              )),
-                          Container(
-                            padding: EdgeInsets.symmetric(horizontal: 16.0),
-                            child: Column(
-                              children: [
-                                Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Color.fromRGBO(
-                                                  208, 215, 226, 1),
-                                              width: 1.0))),
-                                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Cá nhân',
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            color: Color.fromRGBO(
-                                                107, 119, 140, 1)),
-                                      ),
-                                      SizedBox(
-                                        height: 12.0,
-                                      ),
-                                      Text(
-                                        'Nguyễn văn khanh'.toUpperCase(),
-                                        style: TextStyle(
-                                            fontSize: 16.0,
-                                            color: Color.fromRGBO(9, 30, 66, 1),
-                                            fontWeight: FontWeight.w600),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Color.fromRGBO(
-                                                  208, 215, 226, 1),
-                                              width: 1.0))),
-                                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Mã số thuế',
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            color: Color.fromRGBO(
-                                                107, 119, 140, 1)),
-                                      ),
-                                      SizedBox(
-                                        height: 12.0,
-                                      ),
-                                      Text(
-                                        '0103930279',
-                                        style: TextStyle(
-                                            fontSize: 16.0,
-                                            color: Color.fromRGBO(9, 30, 66, 1),
-                                            fontWeight: FontWeight.w600),
-                                      )
-                                    ],
-                                  ),
-                                ),
-                                Container(
-                                  width: double.infinity,
-                                  decoration: BoxDecoration(
-                                      border: Border(
-                                          bottom: BorderSide(
-                                              color: Color.fromRGBO(
-                                                  208, 215, 226, 1),
-                                              width: 1.0))),
-                                  padding: EdgeInsets.symmetric(vertical: 16.0),
-                                  child: Column(
-                                    crossAxisAlignment:
-                                        CrossAxisAlignment.start,
-                                    children: [
-                                      Text(
-                                        'Thời hạn hoạt động',
-                                        style: TextStyle(
-                                            fontSize: 14.0,
-                                            color: Color.fromRGBO(
-                                                107, 119, 140, 1)),
-                                      ),
-                                      SizedBox(
-                                        height: 12.0,
-                                      ),
-                                      Text(
-                                        '12/01/2020 - 12/01/2022',
-                                        style: TextStyle(
-                                            fontSize: 16.0,
-                                            color: Color.fromRGBO(9, 30, 66, 1),
-                                            fontWeight: FontWeight.w600),
-                                      )
-                                    ],
-                                  ),
-                                )
-                              ],
-                            ),
-                          )
-                        ],
-                      )),
-                );
-              },
-            );
-          },
-          child: Container(
-            child: Row(children: [
-              Container(
-                width: 40,
-                height: 40,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    fit: BoxFit.fill,
-                    image: AssetImage('assets/images/user_dashboard.png'),
-                  ),
+      backgroundColor: Color.fromRGBO(247, 248, 252, 1),
+      body: Container(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Container(
+              height: 160,
+              decoration: BoxDecoration(
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage('assets/images/dashboard_header.png'),
                 ),
               ),
-              Container(
-                margin: EdgeInsets.only(left: 16),
+              child: SafeArea(
+                minimum: EdgeInsets.only(left: 24, right: 10),
                 child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      'Nguyễn Văn Khanh',
-                      style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          fontWeight: FontWeight.w500),
-                    ),
-                    SizedBox(
-                      height: 4,
-                    ),
-                    Text(
-                      'Cá nhân',
-                      style: TextStyle(
-                          fontWeight: FontWeight.normal,
-                          color: Colors.white,
-                          fontSize: 14.0),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        FlatButton(
+                          padding: EdgeInsets.zero,
+                          onPressed: () {
+                            showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return Dialog(
+                                  shape: RoundedRectangleBorder(
+                                    borderRadius: BorderRadius.circular(4.0),
+                                  ),
+                                  child: Container(
+                                      width: 366.0,
+                                      child: Column(
+                                        mainAxisSize: MainAxisSize.min,
+                                        children: [
+                                          Container(
+                                              decoration: BoxDecoration(
+                                                  border: Border(
+                                                      bottom: BorderSide(
+                                                          color:
+                                                          Color.fromRGBO(208, 215, 226, 1),
+                                                          width: 1.0))),
+                                              padding: EdgeInsets.all(16.0),
+                                              child: Row(
+                                                mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                children: [
+                                                  Text(
+                                                    'Thông tin chi tiết',
+                                                    style: TextStyle(
+                                                        fontSize: 16.0,
+                                                        color: Color.fromRGBO(9, 30, 66, 1)),
+                                                  ),
+                                                  Container(
+                                                    width: 20.0,
+                                                    height: 20.0,
+                                                    child: IconButton(
+                                                        padding: EdgeInsets.zero,
+                                                        icon: Icon(
+                                                          Icons.close_outlined,
+                                                          color:
+                                                          Color.fromRGBO(107, 119, 140, 1),
+                                                        ),
+                                                        onPressed: () {
+                                                          Navigator.pop(context);
+                                                        }),
+                                                  )
+                                                ],
+                                              )),
+                                          Container(
+                                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                                            child: Column(
+                                              children: [
+                                                Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                      border: Border(
+                                                          bottom: BorderSide(
+                                                              color: Color.fromRGBO(
+                                                                  208, 215, 226, 1),
+                                                              width: 1.0))),
+                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        'Cá nhân',
+                                                        style: TextStyle(
+                                                            fontSize: 14.0,
+                                                            color: Color.fromRGBO(
+                                                                107, 119, 140, 1)),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 12.0,
+                                                      ),
+                                                      Text(
+                                                        'Nguyễn văn khanh'.toUpperCase(),
+                                                        style: TextStyle(
+                                                            fontSize: 16.0,
+                                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                                            fontWeight: FontWeight.w600),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                      border: Border(
+                                                          bottom: BorderSide(
+                                                              color: Color.fromRGBO(
+                                                                  208, 215, 226, 1),
+                                                              width: 1.0))),
+                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        'Mã số thuế',
+                                                        style: TextStyle(
+                                                            fontSize: 14.0,
+                                                            color: Color.fromRGBO(
+                                                                107, 119, 140, 1)),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 12.0,
+                                                      ),
+                                                      Text(
+                                                        '0103930279',
+                                                        style: TextStyle(
+                                                            fontSize: 16.0,
+                                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                                            fontWeight: FontWeight.w600),
+                                                      )
+                                                    ],
+                                                  ),
+                                                ),
+                                                Container(
+                                                  width: double.infinity,
+                                                  decoration: BoxDecoration(
+                                                      border: Border(
+                                                          bottom: BorderSide(
+                                                              color: Color.fromRGBO(
+                                                                  208, 215, 226, 1),
+                                                              width: 1.0))),
+                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                                  child: Column(
+                                                    crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                    children: [
+                                                      Text(
+                                                        'Thời hạn hoạt động',
+                                                        style: TextStyle(
+                                                            fontSize: 14.0,
+                                                            color: Color.fromRGBO(
+                                                                107, 119, 140, 1)),
+                                                      ),
+                                                      SizedBox(
+                                                        height: 12.0,
+                                                      ),
+                                                      Text(
+                                                        '12/01/2020 - 12/01/2022',
+                                                        style: TextStyle(
+                                                            fontSize: 16.0,
+                                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                                            fontWeight: FontWeight.w600),
+                                                      )
+                                                    ],
+                                                  ),
+                                                )
+                                              ],
+                                            ),
+                                          )
+                                        ],
+                                      )),
+                                );
+                              },
+                            );
+                          },
+                          child: Container(
+                            child: Row(
+                                children: [
+                                  Container(
+                                    width: 40,
+                                    height: 40,
+                                    decoration: BoxDecoration(
+                                      image: DecorationImage(
+                                        fit: BoxFit.fill,
+                                        image: AssetImage(
+                                            'assets/images/user_dashboard.png'),
+                                      ),
+                                    ),
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 16),
+                                    child: Column(
+                                      crossAxisAlignment: CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          'Nguyễn Văn Khanh',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'Gilroy',
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.w600),
+                                        ),
+                                        SizedBox(
+                                          height: 4,
+                                        ),
+                                        Text(
+                                          'Cá nhân',
+                                          style: TextStyle(
+                                              color: Colors.white,
+                                              fontFamily: 'Gilroy',
+                                              fontSize: 14.0),
+                                        ),
+                                      ],
+                                    ),
+                                  )
+                                ]),
+                          ),
+                        ),
+                        Row(
+                          children: [
+                            IconButton(
+                                iconSize: 20,
+                                icon: Icon(MyFlutterApp.messenger_dashboard,
+                                    color: Colors.white),
+                                onPressed: () {
+                                  launch('https://www.facebook.com/nacencommca2');
+                                }),
+                            IconButton(
+                                iconSize: 20,
+                                icon: Icon(MyFlutterApp.call_support,
+                                    color: Colors.white),
+                                onPressed: () {
+                                  launch('tel://1900545407');
+                                }),
+                          ],
+                        )
+                      ],
                     ),
                   ],
                 ),
-              )
-            ]),
-          ),
-        ),
-        actions: [
-          IconButton(
-              iconSize: 20,
-              icon: Icon(MyFlutterApp.messenger_dashboard, color: Colors.white),
-              onPressed: () {
-                launch('https://www.facebook.com/nacencommca2');
-              }),
-          IconButton(
-              iconSize: 20,
-              icon: Icon(MyFlutterApp.call_support, color: Colors.white),
-              onPressed: () {
-                launch('tel://1900545407');
-              }),
-        ],
-        backgroundColor: Color.fromRGBO(17, 57, 125, 1),
-        elevation: 0,
-      ),
-      body: Container(
-        padding: EdgeInsets.only(top: 16, left: 12, right: 12),
-        child: Column(
-          children: <Widget>[
+              ),
+            ),
+            Padding(
+                padding: EdgeInsets.only(right: 12.0, top: 36.0, bottom: 16.0, left: 12.0),
+              child: Text(
+                'Yêu cầu chờ ký (${requestData.length})',
+                style: TextStyle(
+                  fontWeight: FontWeight.w500,
+                  fontSize: 18,
+                  color: Color.fromRGBO(9, 30, 66, 1)
+                ),
+              ),
+            ),
             Expanded(
               child: ListView.builder(
                   itemCount: requestData.length,
@@ -260,6 +295,7 @@ class HistoryScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(247, 248, 252, 1),
       appBar: AppBar(
         backgroundColor: Color.fromRGBO(17, 57, 125, 1),
         title: Text(
@@ -324,17 +360,44 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FlatButton(
-        child: Text("Notification"),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => NewPage(),
-            ),
-          );
-        },
+
+    return Scaffold(
+      backgroundColor: Color.fromRGBO(247, 248, 252, 1),
+      appBar: AppBar(
+        backgroundColor: Color.fromRGBO(17, 57, 125, 1),
+        title: Text(
+          'Thông báo',
+          style: TextStyle(
+            // fontFamily: 'Gilroy',
+              fontSize: 18.0,
+              fontWeight: FontWeight.w600),
+        ),
+        actions: [
+          FlatButton(
+              child: Text(
+                  "Xoá hết",
+                style: TextStyle(
+                  fontSize: 12,
+                  color: Colors.white
+                ),
+              ),
+              onPressed: () {}),
+        ],
       ),
+      body: Container(
+        padding: EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
+        child: Container(
+          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          color: Colors.white,
+          child: ListView.builder(
+              // separatorBuilder: (context, index) => Divider(
+              //   color: Colors.black,
+              // ),
+              itemCount: requestData.length,
+              itemBuilder: (BuildContext context, int index) => buildNotiCard(context, index)
+          ),
+        )
+      )
     );
   }
 }
@@ -345,16 +408,148 @@ class AccountScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FlatButton(
-        child: Text("Settings"),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => NewPage(),
+    return Scaffold(
+      backgroundColor: Color.fromRGBO(247, 248, 252, 1),
+      body: Column(
+        children: [
+          Expanded(
+            child: ListView(
+              children: <Widget>[
+                Stack(
+                  children: [
+                    Container(
+                      width: double.infinity,
+                      height: 200.0,
+                      color: Colors.white,
+                    ),
+                    Container(
+                      height: 90.0,
+                      decoration: new BoxDecoration(
+                        boxShadow: <BoxShadow>[
+                          BoxShadow(
+                            color: Color.fromRGBO(13, 86, 209, 1),
+                            blurRadius: 8,
+                          )
+                        ],
+                        color: Color.fromRGBO(17, 57, 125, 1),
+                        borderRadius: BorderRadius.vertical(
+                            bottom: Radius.elliptical(
+                                MediaQuery.of(context).size.width, 50.0)),
+                      ),
+                    ),
+                    Positioned(
+                        top: 40.0,
+                        left: 20.0,
+                        child: Container(
+                          width: 70.0,
+                          height: 70.0,
+                          decoration: BoxDecoration(
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: AssetImage('assets/images/avatar_user.png'),
+                            ),
+                          ),
+                        )
+                    ),
+                    Positioned(
+                        bottom: 0,
+                        child: Padding(
+                          padding: EdgeInsets.all(16.0),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Chứng thư số cho cá nhân',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    color: Color.fromRGBO(107, 119, 140, 1)),
+                              ),
+                              SizedBox(
+                                height: 8,
+                              ),
+                              Text(
+                                'nguyễn văn khanh'.toUpperCase(),
+                                style: TextStyle(
+                                    fontSize: 14,
+                                    fontWeight: FontWeight.w500,
+                                    color: Color.fromRGBO(9, 30, 66, 1)),
+                              ),
+                              SizedBox(
+                                height: 6,
+                              ),
+                              Text(
+                                '',
+                                overflow: TextOverflow.ellipsis,
+                                style: TextStyle(
+                                    fontSize: 12,
+                                    color: Color.fromRGBO(9, 30, 66, 1)),
+                              )
+                            ],
+                          ),
+                        )
+                    )
+                  ],
+                ),
+                SizedBox(height: 15),
+                settingItems1(context, CertInfo(), Icons.error_rounded, 'Thông tin Chứng thư số'),
+                Padding(
+                    padding: EdgeInsets.all(16.0),
+                  child: Text(
+                      'Cài đặt',
+                    style: TextStyle(
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.w500,
+                      color: Color.fromRGBO(9, 30, 66, 1)
+                    ),
+                  ),
+                ),
+                settingItems(context, SecuritySetting(), Icons.security, 'Thiết lập bảo mật'),
+                settingItems(context, ChangePIN(), Icons.lock_outline_rounded, 'Thay đổi mã PIN'),
+                settingItems(context, SetLang(), Icons.language, 'Thiết lập ngôn ngữ'),
+                settingItems(context, SetNoti(), Icons.notifications, 'Thiết lập thông báo'),
+                Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: Text(
+                    'Hỗ trợ & liên hệ',
+                    style: TextStyle(
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(9, 30, 66, 1)
+                    ),
+                  ),
+                ),
+                settingItems(context, FeedBack(), Icons.email, 'Phản hồi cho chúng tôi'),
+                settingItems(context, CustomerService(), Icons.chat_rounded, 'Chat với hỗ trợ'),
+                settingItems1(context, SecuritySetting(), Icons.call, 'Hotline 1900-54-54-07'),
+                SizedBox(height: 16),
+                settingItems1(context, NewPlan(), Icons.create_new_folder, 'Đăng ký dịch vụ mới'),
+                Container(
+                  margin: EdgeInsets.only(top: 1.0),
+                  decoration: BoxDecoration (
+                      color: Colors.white
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.logout,
+                      color: Colors.red,
+                    ),
+                    title: Text(
+                      'Đăng xuất',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.red
+                      ),
+                    ),
+                    onTap: () {},
+                  ),
+                ),
+                SizedBox(height: 45),
+              ],
             ),
-          );
-        },
+          )
+        ],
       ),
     );
   }
