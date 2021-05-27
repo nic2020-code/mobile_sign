@@ -54,39 +54,45 @@ class HomeScreen extends StatelessWidget {
                                               decoration: BoxDecoration(
                                                   border: Border(
                                                       bottom: BorderSide(
-                                                          color:
-                                                          Color.fromRGBO(208, 215, 226, 1),
+                                                          color: Color.fromRGBO(
+                                                              208, 215, 226, 1),
                                                           width: 1.0))),
                                               padding: EdgeInsets.all(16.0),
                                               child: Row(
                                                 mainAxisAlignment:
-                                                MainAxisAlignment.spaceBetween,
-                                                crossAxisAlignment: CrossAxisAlignment.center,
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.center,
                                                 children: [
                                                   Text(
                                                     'Thông tin chi tiết',
                                                     style: TextStyle(
                                                         fontSize: 16.0,
-                                                        color: Color.fromRGBO(9, 30, 66, 1)),
+                                                        color: Color.fromRGBO(
+                                                            9, 30, 66, 1)),
                                                   ),
                                                   Container(
                                                     width: 20.0,
                                                     height: 20.0,
                                                     child: IconButton(
-                                                        padding: EdgeInsets.zero,
+                                                        padding:
+                                                            EdgeInsets.zero,
                                                         icon: Icon(
                                                           Icons.close_outlined,
-                                                          color:
-                                                          Color.fromRGBO(107, 119, 140, 1),
+                                                          color: Color.fromRGBO(
+                                                              107, 119, 140, 1),
                                                         ),
                                                         onPressed: () {
-                                                          Navigator.pop(context);
+                                                          Navigator.pop(
+                                                              context);
                                                         }),
                                                   )
                                                 ],
                                               )),
                                           Container(
-                                            padding: EdgeInsets.symmetric(horizontal: 16.0),
+                                            padding: EdgeInsets.symmetric(
+                                                horizontal: 16.0),
                                             child: Column(
                                               children: [
                                                 Container(
@@ -94,30 +100,48 @@ class HomeScreen extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                       border: Border(
                                                           bottom: BorderSide(
-                                                              color: Color.fromRGBO(
-                                                                  208, 215, 226, 1),
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      208,
+                                                                      215,
+                                                                      226,
+                                                                      1),
                                                               width: 1.0))),
-                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 16.0),
                                                   child: Column(
                                                     crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Text(
                                                         'Cá nhân',
                                                         style: TextStyle(
                                                             fontSize: 14.0,
-                                                            color: Color.fromRGBO(
-                                                                107, 119, 140, 1)),
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    107,
+                                                                    119,
+                                                                    140,
+                                                                    1)),
                                                       ),
                                                       SizedBox(
                                                         height: 12.0,
                                                       ),
                                                       Text(
-                                                        'Nguyễn văn khanh'.toUpperCase(),
+                                                        'Nguyễn văn khanh'
+                                                            .toUpperCase(),
                                                         style: TextStyle(
                                                             fontSize: 16.0,
-                                                            color: Color.fromRGBO(9, 30, 66, 1),
-                                                            fontWeight: FontWeight.w600),
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    9,
+                                                                    30,
+                                                                    66,
+                                                                    1),
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
                                                       )
                                                     ],
                                                   ),
@@ -127,20 +151,30 @@ class HomeScreen extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                       border: Border(
                                                           bottom: BorderSide(
-                                                              color: Color.fromRGBO(
-                                                                  208, 215, 226, 1),
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      208,
+                                                                      215,
+                                                                      226,
+                                                                      1),
                                                               width: 1.0))),
-                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 16.0),
                                                   child: Column(
                                                     crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Text(
                                                         'Mã số thuế',
                                                         style: TextStyle(
                                                             fontSize: 14.0,
-                                                            color: Color.fromRGBO(
-                                                                107, 119, 140, 1)),
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    107,
+                                                                    119,
+                                                                    140,
+                                                                    1)),
                                                       ),
                                                       SizedBox(
                                                         height: 12.0,
@@ -149,8 +183,15 @@ class HomeScreen extends StatelessWidget {
                                                         '0103930279',
                                                         style: TextStyle(
                                                             fontSize: 16.0,
-                                                            color: Color.fromRGBO(9, 30, 66, 1),
-                                                            fontWeight: FontWeight.w600),
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    9,
+                                                                    30,
+                                                                    66,
+                                                                    1),
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
                                                       )
                                                     ],
                                                   ),
@@ -160,20 +201,30 @@ class HomeScreen extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                       border: Border(
                                                           bottom: BorderSide(
-                                                              color: Color.fromRGBO(
-                                                                  208, 215, 226, 1),
+                                                              color: Color
+                                                                  .fromRGBO(
+                                                                      208,
+                                                                      215,
+                                                                      226,
+                                                                      1),
                                                               width: 1.0))),
-                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
+                                                  padding: EdgeInsets.symmetric(
+                                                      vertical: 16.0),
                                                   child: Column(
                                                     crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                        CrossAxisAlignment
+                                                            .start,
                                                     children: [
                                                       Text(
                                                         'Thời hạn hoạt động',
                                                         style: TextStyle(
                                                             fontSize: 14.0,
-                                                            color: Color.fromRGBO(
-                                                                107, 119, 140, 1)),
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    107,
+                                                                    119,
+                                                                    140,
+                                                                    1)),
                                                       ),
                                                       SizedBox(
                                                         height: 12.0,
@@ -182,8 +233,15 @@ class HomeScreen extends StatelessWidget {
                                                         '12/01/2020 - 12/01/2022',
                                                         style: TextStyle(
                                                             fontSize: 16.0,
-                                                            color: Color.fromRGBO(9, 30, 66, 1),
-                                                            fontWeight: FontWeight.w600),
+                                                            color:
+                                                                Color.fromRGBO(
+                                                                    9,
+                                                                    30,
+                                                                    66,
+                                                                    1),
+                                                            fontWeight:
+                                                                FontWeight
+                                                                    .w600),
                                                       )
                                                     ],
                                                   ),
@@ -198,46 +256,44 @@ class HomeScreen extends StatelessWidget {
                             );
                           },
                           child: Container(
-                            child: Row(
-                                children: [
-                                  Container(
-                                    width: 40,
-                                    height: 40,
-                                    decoration: BoxDecoration(
-                                      image: DecorationImage(
-                                        fit: BoxFit.fill,
-                                        image: AssetImage(
-                                            'assets/images/user_dashboard.png'),
-                                      ),
-                                    ),
+                            child: Row(children: [
+                              Container(
+                                width: 40,
+                                height: 40,
+                                decoration: BoxDecoration(
+                                  image: DecorationImage(
+                                    fit: BoxFit.fill,
+                                    image: AssetImage(
+                                        'assets/images/user_dashboard.png'),
                                   ),
-                                  Container(
-                                    margin: EdgeInsets.only(left: 16),
-                                    child: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.start,
-                                      children: [
-                                        Text(
-                                          'Nguyễn Văn Khanh',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontFamily: 'Gilroy',
-                                              fontSize: 16.0,
-                                              fontWeight: FontWeight.w600),
-                                        ),
-                                        SizedBox(
-                                          height: 4,
-                                        ),
-                                        Text(
-                                          'Cá nhân',
-                                          style: TextStyle(
-                                              color: Colors.white,
-                                              fontFamily: 'Gilroy',
-                                              fontSize: 14.0),
-                                        ),
-                                      ],
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(left: 16),
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      'Nguyễn Văn Khanh',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w600),
                                     ),
-                                  )
-                                ]),
+                                    SizedBox(
+                                      height: 4,
+                                    ),
+                                    Text(
+                                      'Cá nhân',
+                                      style: TextStyle(
+                                          color: Colors.white,
+                                          fontSize: 14.0,
+                                          fontWeight: FontWeight.w400),
+                                    ),
+                                  ],
+                                ),
+                              )
+                            ]),
                           ),
                         ),
                         Row(
@@ -247,7 +303,8 @@ class HomeScreen extends StatelessWidget {
                                 icon: Icon(MyFlutterApp.messenger_dashboard,
                                     color: Colors.white),
                                 onPressed: () {
-                                  launch('https://www.facebook.com/nacencommca2');
+                                  launch(
+                                      'https://www.facebook.com/nacencommca2');
                                 }),
                             IconButton(
                                 iconSize: 20,
@@ -265,14 +322,14 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             Padding(
-                padding: EdgeInsets.only(right: 12.0, top: 36.0, bottom: 16.0, left: 12.0),
+              padding: EdgeInsets.only(
+                  right: 12.0, top: 36.0, bottom: 16.0, left: 12.0),
               child: Text(
                 'Yêu cầu chờ ký (${requestData.length})',
                 style: TextStyle(
-                  fontWeight: FontWeight.w500,
-                  fontSize: 18,
-                  color: Color.fromRGBO(9, 30, 66, 1)
-                ),
+                    fontWeight: FontWeight.w500,
+                    fontSize: 18,
+                    color: Color.fromRGBO(9, 30, 66, 1)),
               ),
             ),
             Expanded(
@@ -339,17 +396,8 @@ class QRScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: FlatButton(
-        child: Text("QR Code"),
-        onPressed: () {
-          Navigator.of(context).push(
-            MaterialPageRoute(
-              builder: (context) => NewPage(),
-            ),
-          );
-        },
-      ),
+    return Center(
+      child: Text('QR Code')
     );
   }
 }
@@ -360,45 +408,39 @@ class NotificationScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
-      backgroundColor: Color.fromRGBO(247, 248, 252, 1),
-      appBar: AppBar(
-        backgroundColor: Color.fromRGBO(17, 57, 125, 1),
-        title: Text(
-          'Thông báo',
-          style: TextStyle(
-            // fontFamily: 'Gilroy',
-              fontSize: 18.0,
-              fontWeight: FontWeight.w600),
-        ),
-        actions: [
-          FlatButton(
-              child: Text(
-                  "Xoá hết",
-                style: TextStyle(
-                  fontSize: 12,
-                  color: Colors.white
-                ),
-              ),
-              onPressed: () {}),
-        ],
-      ),
-      body: Container(
-        padding: EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
-        child: Container(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
-          color: Colors.white,
-          child: ListView.builder(
-              // separatorBuilder: (context, index) => Divider(
-              //   color: Colors.black,
-              // ),
-              itemCount: requestData.length,
-              itemBuilder: (BuildContext context, int index) => buildNotiCard(context, index)
+        backgroundColor: Color.fromRGBO(247, 248, 252, 1),
+        appBar: AppBar(
+          backgroundColor: Color.fromRGBO(17, 57, 125, 1),
+          title: Text(
+            'Thông báo',
+            style: TextStyle(
+                // fontFamily: 'Gilroy',
+                fontSize: 18.0,
+                fontWeight: FontWeight.w600),
           ),
-        )
-      )
-    );
+          actions: [
+            FlatButton(
+                child: Text(
+                  "Xoá hết",
+                  style: TextStyle(fontSize: 12, color: Colors.white),
+                ),
+                onPressed: () {}),
+          ],
+        ),
+        body: Container(
+            padding: EdgeInsets.only(top: 12.0, left: 12.0, right: 12.0),
+            child: Container(
+              padding: EdgeInsets.symmetric(horizontal: 16.0),
+              color: Colors.white,
+              child: ListView.builder(
+                  // separatorBuilder: (context, index) => Divider(
+                  //   color: Colors.black,
+                  // ),
+                  itemCount: requestData.length,
+                  itemBuilder: (BuildContext context, int index) =>
+                      buildNotiCard(context, index)),
+            )));
   }
 }
 
@@ -446,11 +488,11 @@ class AccountScreen extends StatelessWidget {
                           decoration: BoxDecoration(
                             image: DecorationImage(
                               fit: BoxFit.fill,
-                              image: AssetImage('assets/images/avatar_user.png'),
+                              image:
+                                  AssetImage('assets/images/avatar_user.png'),
                             ),
                           ),
-                        )
-                    ),
+                        )),
                     Positioned(
                         bottom: 0,
                         child: Padding(
@@ -487,27 +529,30 @@ class AccountScreen extends StatelessWidget {
                               )
                             ],
                           ),
-                        )
-                    )
+                        ))
                   ],
                 ),
                 SizedBox(height: 15),
-                settingItems1(context, CertInfo(), Icons.error_rounded, 'Thông tin Chứng thư số'),
+                settingItems1(context, CertInfo(), Icons.error_rounded,
+                    'Thông tin Chứng thư số'),
                 Padding(
-                    padding: EdgeInsets.all(16.0),
+                  padding: EdgeInsets.all(16.0),
                   child: Text(
-                      'Cài đặt',
+                    'Cài đặt',
                     style: TextStyle(
-                      fontSize: 16.0,
-                      fontWeight: FontWeight.w500,
-                      color: Color.fromRGBO(9, 30, 66, 1)
-                    ),
+                        fontSize: 16.0,
+                        fontWeight: FontWeight.w500,
+                        color: Color.fromRGBO(9, 30, 66, 1)),
                   ),
                 ),
-                settingItems(context, SecuritySetting(), Icons.security, 'Thiết lập bảo mật'),
-                settingItems(context, ChangePIN(), Icons.lock_outline_rounded, 'Thay đổi mã PIN'),
-                settingItems(context, SetLang(), Icons.language, 'Thiết lập ngôn ngữ'),
-                settingItems(context, SetNoti(), Icons.notifications, 'Thiết lập thông báo'),
+                settingItems(context, SecuritySetting(), Icons.security,
+                    'Thiết lập bảo mật'),
+                settingItems(context, ChangePIN(), Icons.lock_outline_rounded,
+                    'Thay đổi mã PIN'),
+                settingItems(
+                    context, SetLang(), Icons.language, 'Thiết lập ngôn ngữ'),
+                settingItems(context, SetNoti(), Icons.notifications,
+                    'Thiết lập thông báo'),
                 Padding(
                   padding: EdgeInsets.all(16.0),
                   child: Text(
@@ -515,20 +560,42 @@ class AccountScreen extends StatelessWidget {
                     style: TextStyle(
                         fontSize: 16.0,
                         fontWeight: FontWeight.w500,
-                        color: Color.fromRGBO(9, 30, 66, 1)
-                    ),
+                        color: Color.fromRGBO(9, 30, 66, 1)),
                   ),
                 ),
-                settingItems(context, FeedBack(), Icons.email, 'Phản hồi cho chúng tôi'),
-                settingItems(context, CustomerService(), Icons.chat_rounded, 'Chat với hỗ trợ'),
-                settingItems1(context, SecuritySetting(), Icons.call, 'Hotline 1900-54-54-07'),
-                SizedBox(height: 16),
-                settingItems1(context, NewPlan(), Icons.create_new_folder, 'Đăng ký dịch vụ mới'),
+                settingItems(
+                    context, FeedBack(), Icons.email, 'Phản hồi cho chúng tôi'),
+                settingItems(context, CustomerService(), Icons.chat_rounded,
+                    'Chat với hỗ trợ'),
                 Container(
                   margin: EdgeInsets.only(top: 1.0),
                   decoration: BoxDecoration (
                       color: Colors.white
                   ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.call,
+                      color: Color.fromRGBO(107, 119, 140, 1),
+                    ),
+                    title: Text(
+                      'Hotline 1900-54-54-07',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(52, 69, 99, 1)
+                      ),
+                    ),
+                    onTap: () {
+                      launch('tel://1900545407');
+                    },
+                  ),
+                ),
+                SizedBox(height: 16),
+                settingItems1(context, NewPlan(), Icons.create_new_folder,
+                    'Đăng ký dịch vụ mới'),
+                Container(
+                  margin: EdgeInsets.only(top: 1.0),
+                  decoration: BoxDecoration(color: Colors.white),
                   child: ListTile(
                     leading: Icon(
                       Icons.logout,
@@ -539,8 +606,7 @@ class AccountScreen extends StatelessWidget {
                       style: TextStyle(
                           fontSize: 14.0,
                           fontWeight: FontWeight.w500,
-                          color: Colors.red
-                      ),
+                          color: Colors.red),
                     ),
                     onTap: () {},
                   ),
@@ -550,31 +616,6 @@ class AccountScreen extends StatelessWidget {
             ),
           )
         ],
-      ),
-    );
-  }
-}
-
-class NewPage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          'New Screen',
-        ),
-      ),
-      body: Container(
-        child: FlatButton(
-          child: Text("Push new Screen"),
-          onPressed: () {
-            Navigator.of(context).push(
-              MaterialPageRoute(
-                builder: (context) => NewPage(),
-              ),
-            );
-          },
-        ),
       ),
     );
   }

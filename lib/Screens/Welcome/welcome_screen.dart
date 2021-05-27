@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:myApp/Screens/SignIn/components/connect_device.dart';
+import 'package:myApp/Screens/Welcome/sign_up_screen.dart';
 import 'package:myApp/constants.dart';
 
 class WelcomeScreen extends StatelessWidget {
@@ -76,7 +77,13 @@ class WelcomeScreen extends StatelessWidget {
                 width: double.infinity,
                 height: 44,
                 child: new FlatButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => SignUp(),
+                      ),
+                    );
+                  },
                   child: Text(
                     'Đăng ký'.toUpperCase(),
                     style: TextStyle(
