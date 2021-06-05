@@ -187,12 +187,13 @@ class RequestState extends State<RequestDetail> {
                   barrierDismissible: false,
                   builder: (BuildContext context) {
                     return Dialog(
+                      insetPadding: EdgeInsets.zero,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(4.0),
                       ),
                       child: Container(
                         height: 239.0,
-                        width: 366.0,
+                        width: 340.0,
                         child: Stack(
                           children: <Widget>[
                             Container(
@@ -230,7 +231,6 @@ class RequestState extends State<RequestDetail> {
                                   Text(
                                       'Bạn có chắc chắn muốn từ chối yêu cầu ký hóa đơn này không?',
                                     style: TextStyle(
-                                      fontFamily: 'Gilroy',
                                       fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
                                       color: Color.fromRGBO(18, 35, 56, 1)
@@ -240,7 +240,6 @@ class RequestState extends State<RequestDetail> {
                                   Text(
                                     'Bằng cách nhấn vào xác nhận, bạn sẽ từ chối yêu cầu ký và không thể hoàn tác.',
                                     style: TextStyle(
-                                        fontFamily: 'Gilroy',
                                         fontSize: 14.0,
                                         color: Color.fromRGBO(18, 35, 56, 1)
                                     ),
@@ -262,7 +261,6 @@ class RequestState extends State<RequestDetail> {
                                       style: TextStyle(
                                           fontSize: 12,
                                           fontWeight: FontWeight.w600,
-                                          fontFamily: 'Gilroy'
                                       ),
                                     ),
                                     textColor: Colors.white,

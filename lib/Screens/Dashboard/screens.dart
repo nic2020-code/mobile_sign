@@ -42,11 +42,12 @@ class HomeScreen extends StatelessWidget {
                               barrierDismissible: false,
                               builder: (BuildContext context) {
                                 return Dialog(
+                                  insetPadding: EdgeInsets.zero,
                                   shape: RoundedRectangleBorder(
                                     borderRadius: BorderRadius.circular(4.0),
                                   ),
                                   child: Container(
-                                      width: 366.0,
+                                      width: 340.0,
                                       child: Column(
                                         mainAxisSize: MainAxisSize.min,
                                         children: [
@@ -100,15 +101,8 @@ class HomeScreen extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                       border: Border(
                                                           bottom: BorderSide(
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      208,
-                                                                      215,
-                                                                      226,
-                                                                      1),
-                                                              width: 1.0))),
-                                                  padding: EdgeInsets.symmetric(
-                                                      vertical: 16.0),
+                                                              color: Color.fromRGBO(208, 215, 226, 1), width: 1.0))),
+                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
                                                   child: Column(
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
@@ -118,12 +112,7 @@ class HomeScreen extends StatelessWidget {
                                                         'Cá nhân',
                                                         style: TextStyle(
                                                             fontSize: 14.0,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    107,
-                                                                    119,
-                                                                    140,
-                                                                    1)),
+                                                            color: Color.fromRGBO(107, 119, 140, 1)),
                                                       ),
                                                       SizedBox(
                                                         height: 12.0,
@@ -133,15 +122,8 @@ class HomeScreen extends StatelessWidget {
                                                             .toUpperCase(),
                                                         style: TextStyle(
                                                             fontSize: 16.0,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    9,
-                                                                    30,
-                                                                    66,
-                                                                    1),
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
+                                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                                            fontWeight: FontWeight.w600),
                                                       )
                                                     ],
                                                   ),
@@ -151,15 +133,8 @@ class HomeScreen extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                       border: Border(
                                                           bottom: BorderSide(
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      208,
-                                                                      215,
-                                                                      226,
-                                                                      1),
-                                                              width: 1.0))),
-                                                  padding: EdgeInsets.symmetric(
-                                                      vertical: 16.0),
+                                                              color: Color.fromRGBO(208, 215, 226, 1), width: 1.0))),
+                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
                                                   child: Column(
                                                     crossAxisAlignment:
                                                         CrossAxisAlignment
@@ -169,12 +144,7 @@ class HomeScreen extends StatelessWidget {
                                                         'Mã số thuế',
                                                         style: TextStyle(
                                                             fontSize: 14.0,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    107,
-                                                                    119,
-                                                                    140,
-                                                                    1)),
+                                                            color: Color.fromRGBO(107, 119, 140, 1)),
                                                       ),
                                                       SizedBox(
                                                         height: 12.0,
@@ -183,15 +153,8 @@ class HomeScreen extends StatelessWidget {
                                                         '0103930279',
                                                         style: TextStyle(
                                                             fontSize: 16.0,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    9,
-                                                                    30,
-                                                                    66,
-                                                                    1),
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
+                                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                                            fontWeight: FontWeight.w600),
                                                       )
                                                     ],
                                                   ),
@@ -201,30 +164,16 @@ class HomeScreen extends StatelessWidget {
                                                   decoration: BoxDecoration(
                                                       border: Border(
                                                           bottom: BorderSide(
-                                                              color: Color
-                                                                  .fromRGBO(
-                                                                      208,
-                                                                      215,
-                                                                      226,
-                                                                      1),
-                                                              width: 1.0))),
-                                                  padding: EdgeInsets.symmetric(
-                                                      vertical: 16.0),
+                                                              color: Color.fromRGBO(208, 215, 226, 1), width: 1.0))),
+                                                  padding: EdgeInsets.symmetric(vertical: 16.0),
                                                   child: Column(
-                                                    crossAxisAlignment:
-                                                        CrossAxisAlignment
-                                                            .start,
+                                                    crossAxisAlignment: CrossAxisAlignment.start,
                                                     children: [
                                                       Text(
                                                         'Thời hạn hoạt động',
                                                         style: TextStyle(
                                                             fontSize: 14.0,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    107,
-                                                                    119,
-                                                                    140,
-                                                                    1)),
+                                                            color: Color.fromRGBO(107, 119, 140, 1)),
                                                       ),
                                                       SizedBox(
                                                         height: 12.0,
@@ -233,15 +182,8 @@ class HomeScreen extends StatelessWidget {
                                                         '12/01/2020 - 12/01/2022',
                                                         style: TextStyle(
                                                             fontSize: 16.0,
-                                                            color:
-                                                                Color.fromRGBO(
-                                                                    9,
-                                                                    30,
-                                                                    66,
-                                                                    1),
-                                                            fontWeight:
-                                                                FontWeight
-                                                                    .w600),
+                                                            color: Color.fromRGBO(9, 30, 66, 1),
+                                                            fontWeight: FontWeight.w600),
                                                       )
                                                     ],
                                                   ),
@@ -563,10 +505,50 @@ class AccountScreen extends StatelessWidget {
                         color: Color.fromRGBO(9, 30, 66, 1)),
                   ),
                 ),
-                settingItems(
-                    context, FeedBack(), Icons.email, 'Phản hồi cho chúng tôi'),
-                settingItems(context, CustomerService(), Icons.chat_rounded,
-                    'Chat với hỗ trợ'),
+                Container(
+                  margin: EdgeInsets.only(top: 1.0),
+                  decoration: BoxDecoration(color: Colors.white),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.email,
+                      color: Color.fromRGBO(107, 119, 140, 1),
+                    ),
+                    title: Text(
+                      'Phản hồi cho chúng tôi',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(52, 69, 99, 1)),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      size: 20.0,
+                    ),
+                    onTap: () {},
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(top: 1.0),
+                  decoration: BoxDecoration(color: Colors.white),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.chat_rounded,
+                      color: Color.fromRGBO(107, 119, 140, 1),
+                    ),
+                    title: Text(
+                      'Chat với hỗ trợ',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(52, 69, 99, 1)),
+                    ),
+                    trailing: Icon(
+                      Icons.arrow_forward_ios_sharp,
+                      size: 20.0,
+                    ),
+                    onTap: () {},
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(top: 1.0),
                   decoration: BoxDecoration (
@@ -591,8 +573,27 @@ class AccountScreen extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 16),
-                settingItems1(context, NewPlan(), Icons.create_new_folder,
-                    'Đăng ký dịch vụ mới'),
+                Container(
+                  margin: EdgeInsets.only(top: 1.0),
+                  decoration: BoxDecoration (
+                      color: Colors.white
+                  ),
+                  child: ListTile(
+                    leading: Icon(
+                      Icons.create_new_folder,
+                      color: Color.fromRGBO(107, 119, 140, 1),
+                    ),
+                    title: Text(
+                      'Đăng ký dịch vụ mới',
+                      style: TextStyle(
+                          fontSize: 14.0,
+                          fontWeight: FontWeight.w500,
+                          color: Color.fromRGBO(52, 69, 99, 1)
+                      ),
+                    ),
+                    onTap: () {},
+                  ),
+                ),
                 Container(
                   margin: EdgeInsets.only(top: 1.0),
                   decoration: BoxDecoration(color: Colors.white),
@@ -608,7 +609,98 @@ class AccountScreen extends StatelessWidget {
                           fontWeight: FontWeight.w500,
                           color: Colors.red),
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      showDialog(
+                        context: context,
+                        barrierDismissible: false,
+                        builder: (BuildContext context) {
+                          return Dialog(
+                            insetPadding: EdgeInsets.zero,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(4.0),
+                            ),
+                            child: Container(
+                              height: 183.0,
+                              width: 340.0,
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: <Widget>[
+                                  Container(
+                                    margin: EdgeInsets.only(top: 32.0, left: 16.0),
+                                    child: Text(
+                                      'Đăng xuất',
+                                      style: TextStyle(
+                                          fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color.fromRGBO(18, 35, 56, 1)),
+                                    ),
+                                  ),
+                                  SizedBox(
+                                    height: 12.0,
+                                  ),
+                                  Container(
+                                    margin: EdgeInsets.only(left: 16.0, bottom: 32.0),
+                                    child: Text(
+                                      'Bạn thực sự muốn đăng xuất?',
+                                      style: TextStyle(
+                                          fontSize: 14.0,
+                                          color: Color.fromRGBO(18, 35, 56, 1)),
+                                    ),
+                                  ),
+                                  Container(
+                                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                                    child: Row(
+                                      // mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                      children: [
+                                        Expanded(
+                                          child: FlatButton(
+                                            padding: EdgeInsets.symmetric(vertical: 13.0),
+                                            onPressed: () {
+                                              Navigator.pop(context);
+                                            },
+                                            child: Container(
+                                              child: Text(
+                                                'huỷ'.toUpperCase(),
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.w500,
+                                                ),
+                                              ),
+                                            ),
+                                            textColor: Color.fromRGBO(9, 53, 11, 1),
+                                            color: Color.fromRGBO(199, 206, 216, 1),
+                                              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0))
+                                          ),
+                                        ),
+                                        Container(
+                                          width: 10,
+                                        ),
+                                        Expanded(
+                                          child: FlatButton(
+                                            padding: EdgeInsets.symmetric(vertical: 13.0),
+                                            onPressed: () {},
+                                            child: Text(
+                                              'Đăng xuất'.toUpperCase(),
+                                              style: TextStyle(
+                                                fontSize: 12,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                            ),
+                                            textColor: Colors.white,
+                                            color: Color.fromRGBO(26, 65, 171, 1),
+                                              shape: RoundedRectangleBorder(borderRadius: new BorderRadius.circular(8.0))
+                                          ),
+                                        )
+                                      ],
+                                    ),
+                                  )
+                                ],
+                              ),
+                            ),
+                          );
+                        },
+                      );
+                    },
                   ),
                 ),
                 SizedBox(height: 45),
