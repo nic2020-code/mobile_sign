@@ -47,13 +47,14 @@ class _NewPINFormState extends State<NewPINForm> with WidgetsBindingObserver {
       title: "New Password",
       home: Scaffold(
           resizeToAvoidBottomInset: false, // this is new
-          resizeToAvoidBottomPadding: false, // this is new
+          // resizeToAvoidBottomPadding: false, // this is new
           backgroundColor: Colors.white,
           appBar: AppBar(
             backgroundColor: Colors.transparent,
             elevation: 0,
             leading: IconButton(
-              icon: Icon(Icons.arrow_back_ios_outlined, color: Color.fromRGBO(18, 35, 56, 1)),
+              icon: Icon(Icons.arrow_back_ios_outlined,
+                  color: Color.fromRGBO(18, 35, 56, 1)),
               onPressed: () => Navigator.of(context).pop(),
             ),
           ),
@@ -163,9 +164,11 @@ class _NewPINFormState extends State<NewPINForm> with WidgetsBindingObserver {
                           });
                         },
                       ),
-                      Padding( // this is new
-                          padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom)
-                      ),
+                      Padding(
+                          // this is new
+                          padding: EdgeInsets.only(
+                              bottom:
+                                  MediaQuery.of(context).viewInsets.bottom)),
                     ],
                   ),
                 ),
@@ -174,7 +177,8 @@ class _NewPINFormState extends State<NewPINForm> with WidgetsBindingObserver {
                   child: Align(
                       alignment: FractionalOffset.bottomCenter,
                       child: Container(
-                        padding: EdgeInsets.only(left: 24.0, right: 24.0, bottom: 28.0),
+                        padding: EdgeInsets.only(
+                            left: 24.0, right: 24.0, bottom: 28.0),
                         child: SizedBox(
                           width: double.infinity,
                           height: 44,
@@ -182,15 +186,13 @@ class _NewPINFormState extends State<NewPINForm> with WidgetsBindingObserver {
                             onPressed: () {
                               setState(() {
                                 numberFieldCtrl1.text.isEmpty ||
-                                    numberFieldCtrl1
-                                        .text.length <
-                                        6
+                                        numberFieldCtrl1.text.length < 6
                                     ? _pinValidate = true
                                     : Navigator.of(context).push(
-                                  MaterialPageRoute(
-                                    builder: (context) => AccountScreen(),
-                                  ),
-                                );
+                                        MaterialPageRoute(
+                                          builder: (context) => AccountScreen(),
+                                        ),
+                                      );
                               });
                             },
                             child: Text(
@@ -207,9 +209,7 @@ class _NewPINFormState extends State<NewPINForm> with WidgetsBindingObserver {
                                 borderRadius: BorderRadius.circular(6)),
                           ),
                         ),
-                      )
-                  )
-              )
+                      )))
             ],
           )),
       debugShowCheckedModeBanner: false,
